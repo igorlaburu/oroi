@@ -4,78 +4,169 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oroi — memoria continua para una conversación infinita</title>
-<meta name="description" content="Oroi: una red semántica para agentes conversacionales. Memoria asociativa con dinámica de activación inspirada en la memoria humana.">
+<meta name="description" content="Oroi: una red semántica para agentes conversacionales. Memoria asociativa con dinámica de activación inspirada en los modelos cognitivos de la memoria humana.">
+<meta property="og:title" content="Oroi — memoria continua para una conversación infinita">
+<meta property="og:description" content="Una red semántica para agentes conversacionales: recordar por activación, no solo por similitud. Preprint + código abierto (Apache-2.0).">
+<meta property="og:url" content="https://oroi.gako.ai">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23c0392b'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fdedec'/%3E%3C/svg%3E">
 <style>
-  :root { --tinta: #1a1a1a; --gris: #777; --rojo: #c0392b; --linea: #e2e2e2; }
+  :root { --tinta: #16181a; --gris: #6d7278; --rojo: #c0392b; --rojo-osc: #96281b;
+          --fondo: #ffffff; --linea: #e6e8ea; --carta: #fafbfc; --term: #101214; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Georgia, 'Times New Roman', serif; color: var(--tinta);
-         max-width: 42rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; line-height: 1.65; }
-  h1 { font-size: 2.6rem; font-weight: normal; letter-spacing: -0.01em; }
-  h1 b { color: var(--rojo); font-weight: bold; }
-  .tagline { font-style: italic; color: var(--gris); font-size: 1.15rem; margin: 0.4rem 0 2.5rem; }
-  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.12em;
-       color: var(--gris); font-weight: normal; margin: 2.8rem 0 0.9rem;
-       border-bottom: 1px solid var(--linea); padding-bottom: 0.35rem; }
-  p { margin-bottom: 1rem; }
-  .red { display: flex; justify-content: center; margin: 2.2rem 0; }
-  .enlaces a { display: inline-block; margin: 0.25rem 1.6rem 0.25rem 0; color: var(--rojo);
-               text-decoration: none; border-bottom: 1px solid transparent; }
-  .enlaces a:hover { border-bottom-color: var(--rojo); }
-  .hipotesis { border-left: 3px solid var(--rojo); padding: 0.2rem 0 0.2rem 1.1rem;
-               font-style: italic; color: #444; margin: 1.4rem 0; }
-  .numeros { color: var(--gris); font-size: 0.95rem; }
-  footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--linea);
-           color: var(--gris); font-size: 0.9rem; }
+  body { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+         background: var(--fondo); color: var(--tinta); line-height: 1.7;
+         -webkit-font-smoothing: antialiased; }
+  .lienzo { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem 5rem; }
+  .miga { padding: 1.1rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+          font-size: 0.85rem; color: var(--gris); }
+  .miga a { color: var(--gris); text-decoration: none; }
+  .miga a:hover { color: var(--tinta); }
+  .miga b { color: var(--rojo); font-weight: 700; }
+
+  header { padding: 3.2rem 0 0; text-align: center; }
+  .marca { font-size: 4rem; font-weight: 800; letter-spacing: 0.03em; color: var(--rojo); line-height: 1; }
+  .tagline { font-size: 1.25rem; font-weight: 500; margin-top: 0.6rem; }
+  .sub { color: var(--gris); font-size: 0.98rem; margin-top: 0.4rem; }
+  .sub i { font-style: italic; }
+
+  .chips { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0 0; }
+  .chip { font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 6px;
+          border: 1px solid var(--linea); background: var(--carta); color: var(--tinta);
+          text-decoration: none; font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  a.chip:hover { border-color: var(--rojo); color: var(--rojo); }
+
+  .red { margin: 2.6rem auto 0.3rem; display: flex; justify-content: center; }
+  .leyenda { text-align: center; color: var(--gris); font-size: 0.86rem; margin: 0 auto 2.4rem; max-width: 34rem; }
+
+  p.cuerpo { font-size: 1.05rem; margin: 1.05rem 0; }
+  .hipotesis { margin: 1.8rem 0; padding: 1rem 1.3rem; background: var(--carta);
+               border-left: 4px solid var(--rojo); border-radius: 0 8px 8px 0;
+               font-style: italic; color: #3d4147; }
+
+  .datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1.9rem 0; }
+  .dato { background: var(--carta); border: 1px solid var(--linea); border-radius: 10px;
+          padding: 0.95rem 0.6rem; text-align: center; }
+  .dato b { display: block; font-size: 1.55rem; color: var(--rojo); font-weight: 800; white-space: nowrap; }
+  .dato span { font-size: 0.79rem; color: var(--gris); line-height: 1.35; display: block; margin-top: 0.25rem; }
+
+  h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gris);
+       font-weight: 700; margin: 2.8rem 0 0.9rem; }
+  .cartas { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .carta { display: block; background: var(--carta); border: 1px solid var(--linea);
+           border-radius: 10px; padding: 1rem 1.15rem; text-decoration: none; color: var(--tinta);
+           transition: border-color 0.15s; }
+  .carta:hover { border-color: var(--rojo); }
+  .carta b { color: var(--rojo); }
+  .carta small { color: var(--gris); display: block; margin-top: 0.1rem; font-size: 0.84rem; line-height: 1.45; }
+
+  .terminal { background: var(--term); color: #e8eaec; border-radius: 10px; padding: 1rem 1.25rem;
+              font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.92rem;
+              margin: 0.9rem 0 1rem; overflow-x: auto; line-height: 1.9; }
+  .terminal .p { color: #5da96a; }
+  .terminal .c { color: #6d7278; }
+
+  footer { margin-top: 3.6rem; padding-top: 1.2rem; border-top: 1px solid var(--linea);
+           color: var(--gris); font-size: 0.88rem; text-align: center; }
   footer a { color: var(--gris); }
+  @media (max-width: 560px) {
+    .marca { font-size: 3rem; } .datos { grid-template-columns: 1fr; }
+    .cartas { grid-template-columns: 1fr; } .red svg { width: 100%; height: auto; }
+  }
 </style>
 </head>
 <body>
-<h1><b>Oroi</b></h1>
-<p class="tagline">Memoria continua para una conversación infinita</p>
+<div class="lienzo">
+
+<div class="miga"><a href="https://gako.ai">gako.ai</a> / <b>oroi</b></div>
+
+<header>
+  <div class="marca">OROI</div>
+  <div class="tagline">Memoria continua para una conversación infinita</div>
+  <div class="sub">Una red semántica para agentes conversacionales · <i>oroi</i>, del euskera <i>oroitu</i>: recordar</div>
+  <nav class="chips">
+    <a class="chip" href="https://github.com/igorlaburu/oroi">github.com/igorlaburu/oroi</a>
+    <a class="chip" href="https://pypi.org/project/oroi/">pip install oroi</a>
+    <a class="chip" href="https://doi.org/10.5281/zenodo.21208930">DOI 10.5281/zenodo.21208930</a>
+    <span class="chip">Apache-2.0</span>
+  </nav>
+</header>
 
 <div class="red">
-<svg width="360" height="120" viewBox="0 0 360 120" aria-hidden="true">
-  <defs><marker id="p" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-    <path d="M0,0 L7,3.5 L0,7 z" fill="#888"/></marker></defs>
-  <line x1="76" y1="62" x2="164" y2="50" stroke="#888" stroke-width="3.2" marker-end="url(#p)"/>
-  <line x1="196" y1="48" x2="286" y2="60" stroke="#888" stroke-width="2.2" marker-end="url(#p)"/>
-  <line x1="58" y1="52" x2="30" y2="26" stroke="#ccc" stroke-width="1.4" marker-end="url(#p)"/>
-  <line x1="70" y1="74" x2="52" y2="100" stroke="#ccc" stroke-width="1.4" marker-end="url(#p)"/>
-  <circle cx="62" cy="62" r="15" fill="#e74c3c" stroke="#a93226" stroke-width="3"/>
-  <circle cx="180" cy="48" r="13" fill="#f5b7b1" stroke="#cd6155" stroke-width="3"/>
-  <circle cx="300" cy="62" r="12" fill="#fdedec" stroke="#d98880" stroke-width="3"/>
-  <circle cx="22" cy="18" r="9" fill="#fff" stroke="#ccc" stroke-width="2.5"/>
-  <circle cx="46" cy="106" r="9" fill="#fff" stroke="#ccc" stroke-width="2.5"/>
+<svg width="600" height="185" viewBox="0 0 600 185" aria-label="red semántica: las pistas de la pregunta activan la cadena de asociaciones">
+  <defs>
+    <marker id="p" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 z" fill="#8f959b"/></marker>
+    <radialGradient id="g1" cx="35%" cy="35%"><stop offset="0%" stop-color="#e8604c"/><stop offset="100%" stop-color="#b93425"/></radialGradient>
+    <radialGradient id="g2" cx="35%" cy="35%"><stop offset="0%" stop-color="#ef8b7b"/><stop offset="100%" stop-color="#cf5f4e"/></radialGradient>
+    <radialGradient id="g3b" cx="35%" cy="35%"><stop offset="0%" stop-color="#f6c3ba"/><stop offset="100%" stop-color="#e2988c"/></radialGradient>
+    <radialGradient id="g4" cx="35%" cy="35%"><stop offset="0%" stop-color="#fbe4df"/><stop offset="100%" stop-color="#eec2ba"/></radialGradient>
+    <radialGradient id="gg" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#dfe2e5"/></radialGradient>
+  </defs>
+  <line x1="86" y1="95" x2="188" y2="75" stroke="#8f959b" stroke-width="3.2" marker-end="url(#p)"/>
+  <line x1="230" y1="72" x2="342" y2="88" stroke="#8f959b" stroke-width="2.4" marker-end="url(#p)"/>
+  <line x1="384" y1="94" x2="496" y2="88" stroke="#8f959b" stroke-width="1.8" marker-end="url(#p)"/>
+  <line x1="52" y1="78" x2="30" y2="40" stroke="#dcdfe2" stroke-width="1.4" marker-end="url(#p)"/>
+  <line x1="76" y1="118" x2="58" y2="152" stroke="#dcdfe2" stroke-width="1.4" marker-end="url(#p)"/>
+  <line x1="222" y1="50" x2="206" y2="18" stroke="#dcdfe2" stroke-width="1.4" marker-end="url(#p)"/>
+  <line x1="372" y1="70" x2="396" y2="30" stroke="#dcdfe2" stroke-width="1.4" marker-end="url(#p)"/>
+  <text x="137" y="68" font-size="11.5" font-style="italic" fill="#8f959b" text-anchor="middle">hermana de</text>
+  <text x="286" y="64" font-size="11.5" font-style="italic" fill="#8f959b" text-anchor="middle">trabaja en</text>
+  <text x="440" y="76" font-size="11.5" font-style="italic" fill="#8f959b" text-anchor="middle">está en</text>
+  <circle cx="64" cy="96" r="22" fill="url(#g1)" stroke="#96281b" stroke-width="3"/>
+  <circle cx="210" cy="70" r="19" fill="url(#g2)" stroke="#b44e3e" stroke-width="3"/>
+  <circle cx="363" cy="90" r="17" fill="url(#g3b)" stroke="#cd7f72" stroke-width="3"/>
+  <circle cx="518" cy="87" r="15" fill="url(#g4)" stroke="#dfa79d" stroke-width="3"/>
+  <circle cx="24" cy="30" r="10" fill="url(#gg)" stroke="#ced2d6" stroke-width="2.5"/>
+  <circle cx="52" cy="160" r="10" fill="url(#gg)" stroke="#ced2d6" stroke-width="2.5"/>
+  <circle cx="200" cy="10" r="8" fill="url(#gg)" stroke="#ced2d6" stroke-width="2.5"/>
+  <circle cx="402" cy="22" r="8" fill="url(#gg)" stroke="#ced2d6" stroke-width="2.5"/>
+  <text x="64" y="136" font-size="13" font-weight="700" fill="#16181a" text-anchor="middle">elena</text>
+  <text x="210" y="108" font-size="13" font-weight="600" fill="#3d4147" text-anchor="middle">ana</text>
+  <text x="363" y="126" font-size="13" font-weight="600" fill="#6d7278" text-anchor="middle">hospital la fe</text>
+  <text x="518" y="121" font-size="13" font-weight="600" fill="#8f959b" text-anchor="middle">valencia</text>
 </svg>
 </div>
+<div class="leyenda">«¿dónde trabaja la hermana de Elena?» — las pistas activan la red y la activación
+recorre las asociaciones hasta la respuesta, apagándose con la distancia</div>
 
-<p><b style="color:var(--rojo)">Oroi</b> (euskera: raíz de <i>oroitu</i>, «recordar») es una memoria
-asociativa para agentes conversacionales: una <b>red semántica con dinámica de activación</b>
-inspirada en la memoria humana. Lo mencionado se activa, la activación se propaga a lo asociado,
-todo decae con los turnos, lo repetido se consolida y el desuso apaga — recordar combina el
-reconocimiento (lo que sigue activo) con la evocación (propagación desde las pistas de la pregunta).</p>
+<p class="cuerpo">Tres hechos con la misma forma: «Elena es fontanera», «Carlos es abogado»,
+«Pablo es cocinero». Pregunta por el oficio de Carlos: para un buscador por similitud, las tres
+frases se parecen igual a la pregunta — y te las trae todas. Una memoria debe traer la de Carlos.</p>
+
+<p class="cuerpo">La memoria habitual de un chatbot (RAG) guarda la conversación como texto y
+recupera lo que más se <b>parece</b>. Pero una conversación no es un documento: lo que importa
+compite con hechos casi idénticos, cambia con el tiempo y a veces está a varias asociaciones de
+la pregunta. <b style="color:var(--rojo)">Oroi</b> guarda la conversación como una red de conceptos
+y asociaciones con una dinámica tomada de los modelos cognitivos de la memoria humana: lo mencionado
+se activa, la activación se propaga a lo asociado, lo repetido se consolida —como en el sueño— y el
+desuso apaga.</p>
 
 <div class="hipotesis">La recuperación sensible a la activación supera a la recuperación por
 similitud vectorial pura en conversaciones largas con referencias recurrentes y deriva temática.</div>
 
-<p class="numeros">En una evaluación de 224 escenarios, Oroi supera al RAG híbrido 0,75 frente a
-0,55 en recall de recuperación (gana en 43 escenarios y no pierde en ninguno; p&lt;10⁻⁴), con la
-ventaja concentrada en los casos que confunden a la búsqueda por similitud: distractores, datos que
-cambian y cadenas de tres asociaciones.</p>
+<div class="datos">
+  <div class="dato"><b>0,75 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0,55</b><span>recall de recuperación frente a RAG híbrido (embeddings + BM25, fusión RRF), 224 escenarios</span></div>
+  <div class="dato"><b>43 / 0</b><span>escenarios ganados / perdidos (test de McNemar, p&lt;10⁻⁴)</span></div>
+  <div class="dato"><b>0,97 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0</b><span>con distractores: hechos casi idénticos que compiten por aflorar</span></div>
+</div>
 
-<h2>Preprint</h2>
-<p class="enlaces">
-  <a href="oroi-preprint-v1-es.pdf">📄 Castellano (PDF)</a>
-  <a href="oroi-preprint-v1-en.pdf">📄 English (PDF)</a>
-  <a href="https://doi.org/10.5281/zenodo.21208930">DOI: 10.5281/zenodo.21208930</a>
-</p>
+<h2>El preprint</h2>
+<div class="cartas">
+  <a class="carta" href="oroi-preprint-v1-es.pdf"><b>Castellano</b> (PDF)<small>Oroi: una red semántica para agentes conversacionales</small></a>
+  <a class="carta" href="oroi-preprint-v1-en.pdf"><b>English</b> (PDF)<small>Oroi: a semantic network for conversational agents</small></a>
+</div>
 
-<h2>Código</h2>
-<p>La librería (Python, SQLite + sqlite-vec), con la que se obtuvieron los resultados del
-preprint, se publicará próximamente en
-<a style="color:var(--rojo); text-decoration:none" href="https://github.com/igorlaburu/oroi">github.com/igorlaburu/oroi</a>.
-El nombre <a style="color:var(--rojo); text-decoration:none" href="https://pypi.org/project/oroi/">oroi</a> está ya reservado en PyPI para este proyecto.</p>
+<h2>El código</h2>
+<div class="terminal">
+  <span class="p">$</span> pip install oroi<br>
+  <span class="p">$</span> oroi chat &nbsp;<span class="c"># conversar con memoria · corre 100 % en local con Ollama</span>
+</div>
+<div class="cartas">
+  <a class="carta" href="https://github.com/igorlaburu/oroi"><b>GitHub</b><small>librería, 65 tests y el protocolo de evaluación completo · Apache-2.0</small></a>
+  <a class="carta" href="https://pypi.org/project/oroi/"><b>PyPI</b><small>oroi 0.1.0 · Python ≥ 3.12 · SQLite + sqlite-vec</small></a>
+</div>
 
-<footer>Igor Laburu · <a href="https://gako.ai">Gako AI</a> · oroi@gako.ai</footer>
+<footer>Un proyecto de investigación de <a href="https://gako.ai">Gako AI</a> · Igor Laburu · oroi@gako.ai</footer>
+</div>
 </body>
 </html>
