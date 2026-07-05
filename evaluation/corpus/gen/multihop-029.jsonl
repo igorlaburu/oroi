@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Luis trabaja en Naturgy"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "Naturgy tiene su sede en Bilbao"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Luis?", "expect_context": ["Bilbao"], "expect_answer": "Bilbao"}

@@ -1,0 +1,13 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Sevilla"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "session_break"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "session_break"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Sevilla"], "expect_answer": "Sevilla"}

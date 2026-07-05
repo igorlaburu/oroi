@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Pablo es enfermero"}
+{"type": "turn", "user": "Marta vive en Burgos"}
+{"type": "turn", "user": "Marta es enfermero"}
+{"type": "turn", "user": "Javier vive en Burgos"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "probe", "question": "¿quién es enfermero y vive en Burgos?", "expect_context": ["Marta"], "avoid_context": ["Pablo", "Javier"], "expect_answer": "Marta"}

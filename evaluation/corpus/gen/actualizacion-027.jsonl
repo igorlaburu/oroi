@@ -1,0 +1,13 @@
+{"type": "meta", "name": "actualizacion", "goal": "dato actualizado: el vigente, no el viejo"}
+{"type": "turn", "user": "vivo en Murcia"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "me he mudado, ahora vivo en Bilbao"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "probe", "question": "¿dónde vivo ahora?", "expect_context": ["Bilbao"], "avoid_context": ["Murcia"], "expect_answer": "Bilbao"}

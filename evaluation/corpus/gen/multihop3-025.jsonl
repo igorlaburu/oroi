@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Laura es hermana de Javier"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "Javier trabaja en Repsol"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "Repsol tiene su sede en Gijón"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Laura?", "expect_context": ["Gijón"], "expect_answer": "Gijón"}

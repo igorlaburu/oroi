@@ -1,0 +1,14 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Elena trabaja en Inditex"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "Inditex tiene su sede en Vigo"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Elena?", "expect_context": ["Vigo"], "expect_answer": "Vigo"}

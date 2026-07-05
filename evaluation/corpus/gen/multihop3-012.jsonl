@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Sofía es hermana de Elena"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "Elena trabaja en Naturgy"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "Naturgy tiene su sede en Burgos"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Sofía?", "expect_context": ["Burgos"], "expect_answer": "Burgos"}

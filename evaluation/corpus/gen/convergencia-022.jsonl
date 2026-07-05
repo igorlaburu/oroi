@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Carlos es cocinero"}
+{"type": "turn", "user": "Pablo es cocinero"}
+{"type": "turn", "user": "Carlos vive en Granada"}
+{"type": "turn", "user": "Marta vive en Granada"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿quién es cocinero y vive en Granada?", "expect_context": ["Carlos"], "avoid_context": ["Pablo", "Marta"], "expect_answer": "Carlos"}

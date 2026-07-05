@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Luis vive en Valencia"}
+{"type": "turn", "user": "Javier es fontanero"}
+{"type": "turn", "user": "Laura es fontanero"}
+{"type": "turn", "user": "Javier vive en Valencia"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "probe", "question": "¿quién es fontanero y vive en Valencia?", "expect_context": ["Javier"], "avoid_context": ["Laura", "Luis"], "expect_answer": "Javier"}

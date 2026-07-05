@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Pablo es hermano de Ana"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "Ana trabaja en Mercadona"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "Mercadona tiene su sede en Vigo"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Pablo?", "expect_context": ["Vigo"], "expect_answer": "Vigo"}

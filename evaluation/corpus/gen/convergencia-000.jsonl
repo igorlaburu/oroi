@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Carlos es panadero"}
+{"type": "turn", "user": "Elena vive en Burgos"}
+{"type": "turn", "user": "Sofía es panadero"}
+{"type": "turn", "user": "Sofía vive en Burgos"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "probe", "question": "¿quién es panadero y vive en Burgos?", "expect_context": ["Sofía"], "avoid_context": ["Carlos", "Elena"], "expect_answer": "Sofía"}

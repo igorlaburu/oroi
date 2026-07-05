@@ -1,0 +1,11 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Carlos trabaja en Eroski"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "Eroski tiene su sede en Burgos"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Carlos?", "expect_context": ["Burgos"], "expect_answer": "Burgos"}

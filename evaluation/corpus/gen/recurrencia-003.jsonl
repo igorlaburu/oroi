@@ -1,0 +1,10 @@
+{"type": "meta", "name": "recurrencia", "goal": "dato temprano, pregunta tardía"}
+{"type": "turn", "user": "me he comprado un coche de color blanco"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿de qué color es mi coche?", "expect_context": ["blanco"], "expect_answer": "blanco"}

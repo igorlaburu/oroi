@@ -1,0 +1,14 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Marta trabaja en Telefónica"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "Telefónica tiene su sede en Bilbao"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Marta?", "expect_context": ["Bilbao"], "expect_answer": "Bilbao"}

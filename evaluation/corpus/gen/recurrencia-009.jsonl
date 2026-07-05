@@ -1,0 +1,15 @@
+{"type": "meta", "name": "recurrencia", "goal": "dato temprano, pregunta tardía"}
+{"type": "turn", "user": "me he comprado un coche de color negro"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "probe", "question": "¿de qué color es mi coche?", "expect_context": ["negro"], "expect_answer": "negro"}

@@ -1,0 +1,14 @@
+{"type": "meta", "name": "actualizacion", "goal": "dato actualizado: el vigente, no el viejo"}
+{"type": "turn", "user": "vivo en Madrid"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "me he mudado, ahora vivo en Murcia"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿dónde vivo ahora?", "expect_context": ["Murcia"], "avoid_context": ["Madrid"], "expect_answer": "Murcia"}

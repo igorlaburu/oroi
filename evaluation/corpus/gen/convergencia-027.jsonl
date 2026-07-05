@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Carlos es enfermero"}
+{"type": "turn", "user": "Javier es enfermero"}
+{"type": "turn", "user": "Carlos vive en Murcia"}
+{"type": "turn", "user": "Marta vive en Murcia"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "probe", "question": "¿quién es enfermero y vive en Murcia?", "expect_context": ["Carlos"], "avoid_context": ["Javier", "Marta"], "expect_answer": "Carlos"}

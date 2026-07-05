@@ -1,0 +1,11 @@
+{"type": "meta", "name": "actualizacion", "goal": "dato actualizado: el vigente, no el viejo"}
+{"type": "turn", "user": "vivo en Madrid"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "me he mudado, ahora vivo en Murcia"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "probe", "question": "¿dónde vivo ahora?", "expect_context": ["Murcia"], "avoid_context": ["Madrid"], "expect_answer": "Murcia"}

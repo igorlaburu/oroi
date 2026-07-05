@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Marta es hermana de Ana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "Ana trabaja en Cabify"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "Cabify tiene su sede en Gijón"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Marta?", "expect_context": ["Gijón"], "expect_answer": "Gijón"}

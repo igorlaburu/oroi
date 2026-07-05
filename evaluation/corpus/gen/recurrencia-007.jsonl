@@ -1,0 +1,19 @@
+{"type": "meta", "name": "recurrencia", "goal": "dato temprano, pregunta tardía"}
+{"type": "turn", "user": "me he comprado un coche de color rojo"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "probe", "question": "¿de qué color es mi coche?", "expect_context": ["rojo"], "expect_answer": "rojo"}

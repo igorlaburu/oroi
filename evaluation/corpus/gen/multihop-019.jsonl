@@ -1,0 +1,12 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Carlos trabaja en Cabify"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "Cabify tiene su sede en Valencia"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Carlos?", "expect_context": ["Valencia"], "expect_answer": "Valencia"}

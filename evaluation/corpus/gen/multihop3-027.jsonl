@@ -1,0 +1,18 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Pablo es hermano de Carlos"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "Carlos trabaja en Naturgy"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "Naturgy tiene su sede en Valencia"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Pablo?", "expect_context": ["Valencia"], "expect_answer": "Valencia"}

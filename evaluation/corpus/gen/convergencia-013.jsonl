@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Elena es abogado"}
+{"type": "turn", "user": "Marta vive en Vigo"}
+{"type": "turn", "user": "Laura vive en Vigo"}
+{"type": "turn", "user": "Marta es abogado"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "probe", "question": "¿quién es abogado y vive en Vigo?", "expect_context": ["Marta"], "avoid_context": ["Elena", "Laura"], "expect_answer": "Marta"}

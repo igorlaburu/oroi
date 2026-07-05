@@ -1,0 +1,15 @@
+{"type": "meta", "name": "actualizacion", "goal": "dato actualizado: el vigente, no el viejo"}
+{"type": "turn", "user": "vivo en Sevilla"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "me he mudado, ahora vivo en Vigo"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿dónde vivo ahora?", "expect_context": ["Vigo"], "avoid_context": ["Sevilla"], "expect_answer": "Vigo"}

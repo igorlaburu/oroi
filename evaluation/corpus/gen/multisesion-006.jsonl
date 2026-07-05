@@ -1,0 +1,12 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Sevilla"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "session_break"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "session_break"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Sevilla"], "expect_answer": "Sevilla"}

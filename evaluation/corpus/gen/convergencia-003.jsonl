@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Sofía vive en Valencia"}
+{"type": "turn", "user": "Laura vive en Valencia"}
+{"type": "turn", "user": "Laura es panadero"}
+{"type": "turn", "user": "Diego es panadero"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿quién es panadero y vive en Valencia?", "expect_context": ["Laura"], "avoid_context": ["Diego", "Sofía"], "expect_answer": "Laura"}

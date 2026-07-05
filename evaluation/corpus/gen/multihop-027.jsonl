@@ -1,0 +1,13 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Pablo trabaja en Repsol"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "Repsol tiene su sede en Granada"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Pablo?", "expect_context": ["Granada"], "expect_answer": "Granada"}

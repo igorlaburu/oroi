@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Elena es hermana de Ana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "Ana trabaja en Telefónica"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "Telefónica tiene su sede en Gijón"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Elena?", "expect_context": ["Gijón"], "expect_answer": "Gijón"}

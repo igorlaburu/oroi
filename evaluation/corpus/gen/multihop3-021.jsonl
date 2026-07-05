@@ -1,0 +1,19 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Luis es hermano de Sofía"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "Sofía trabaja en Mercadona"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "Mercadona tiene su sede en Madrid"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Luis?", "expect_context": ["Madrid"], "expect_answer": "Madrid"}

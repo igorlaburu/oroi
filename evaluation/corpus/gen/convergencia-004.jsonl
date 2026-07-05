@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Marta es cocinero"}
+{"type": "turn", "user": "Laura vive en Bilbao"}
+{"type": "turn", "user": "Ana vive en Bilbao"}
+{"type": "turn", "user": "Ana es cocinero"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "probe", "question": "¿quién es cocinero y vive en Bilbao?", "expect_context": ["Ana"], "avoid_context": ["Marta", "Laura"], "expect_answer": "Ana"}

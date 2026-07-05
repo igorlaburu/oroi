@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Pablo es fontanero"}
+{"type": "turn", "user": "Elena vive en Vigo"}
+{"type": "turn", "user": "Marta es fontanero"}
+{"type": "turn", "user": "Marta vive en Vigo"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "probe", "question": "¿quién es fontanero y vive en Vigo?", "expect_context": ["Marta"], "avoid_context": ["Pablo", "Elena"], "expect_answer": "Marta"}

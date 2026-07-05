@@ -1,0 +1,13 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Elena trabaja de cocinero"}
+{"type": "turn", "user": "Marta trabaja de profesora"}
+{"type": "turn", "user": "Ana trabaja de panadero"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "probe", "question": "¿en qué trabaja Marta?", "expect_context": ["profesora"], "avoid_context": ["panadero", "cocinero"], "expect_answer": "profesora"}

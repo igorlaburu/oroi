@@ -1,0 +1,9 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Elena vive en Madrid"}
+{"type": "turn", "user": "Ana es dentista"}
+{"type": "turn", "user": "Javier es dentista"}
+{"type": "turn", "user": "Ana vive en Madrid"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿quién es dentista y vive en Madrid?", "expect_context": ["Ana"], "avoid_context": ["Javier", "Elena"], "expect_answer": "Ana"}

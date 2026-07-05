@@ -1,0 +1,12 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Javier trabaja de arquitecto"}
+{"type": "turn", "user": "Luis trabaja de dentista"}
+{"type": "turn", "user": "Diego trabaja de fontanero"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "probe", "question": "¿en qué trabaja Luis?", "expect_context": ["dentista"], "avoid_context": ["arquitecto", "fontanero"], "expect_answer": "dentista"}

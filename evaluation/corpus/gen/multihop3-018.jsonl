@@ -1,0 +1,18 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Javier es hermano de Laura"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "Laura trabaja en Repsol"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "Repsol tiene su sede en Valencia"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Javier?", "expect_context": ["Valencia"], "expect_answer": "Valencia"}

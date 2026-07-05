@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Pablo vive en Madrid"}
+{"type": "turn", "user": "Pablo es profesora"}
+{"type": "turn", "user": "Javier vive en Madrid"}
+{"type": "turn", "user": "Carlos es profesora"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "probe", "question": "¿quién es profesora y vive en Madrid?", "expect_context": ["Pablo"], "avoid_context": ["Carlos", "Javier"], "expect_answer": "Pablo"}

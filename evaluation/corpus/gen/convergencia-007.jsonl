@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Laura es cocinero"}
+{"type": "turn", "user": "Laura vive en Sevilla"}
+{"type": "turn", "user": "Carlos es cocinero"}
+{"type": "turn", "user": "Marta vive en Sevilla"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "probe", "question": "¿quién es cocinero y vive en Sevilla?", "expect_context": ["Laura"], "avoid_context": ["Carlos", "Marta"], "expect_answer": "Laura"}

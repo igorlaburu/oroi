@@ -1,0 +1,9 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Marta es fontanero"}
+{"type": "turn", "user": "Javier es fontanero"}
+{"type": "turn", "user": "Diego vive en Madrid"}
+{"type": "turn", "user": "Javier vive en Madrid"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿quién es fontanero y vive en Madrid?", "expect_context": ["Javier"], "avoid_context": ["Marta", "Diego"], "expect_answer": "Javier"}

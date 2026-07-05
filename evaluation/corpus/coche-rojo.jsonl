@@ -1,0 +1,10 @@
+{"type": "meta", "name": "coche-rojo", "goal": "Referencia recurrente: dato temprano, largo cambio de tema, pregunta tardía."}
+{"type": "turn", "user": "me he comprado un coche nuevo, un Seat Ibiza de color rojo"}
+{"type": "turn", "user": "¿sabes cuánto tarda en hacerse una buena tortilla de patatas?"}
+{"type": "turn", "user": "hoy he salido a correr cinco kilómetros por el parque"}
+{"type": "turn", "user": "estoy leyendo una novela de ciencia ficción muy entretenida"}
+{"type": "turn", "user": "mañana tengo una reunión importante en el trabajo"}
+{"type": "turn", "user": "me encanta tomar café con leche por las mañanas"}
+{"type": "turn", "user": "el fin de semana quiero ir a la playa si hace buen tiempo"}
+{"type": "turn", "user": "anoche vi un documental sobre el espacio buenísimo"}
+{"type": "probe", "question": "oye, ¿de qué color era mi coche?", "expect_context": ["rojo"], "expect_answer": "rojo"}

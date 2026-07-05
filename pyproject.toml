@@ -1,0 +1,56 @@
+[project]
+name = "oroi"
+version = "0.1.0"
+description = "Memoria asociativa experimental para chatbots: red semántica con dinámica de activación inspirada en la memoria humana"
+authors = [{ name = "Igor Laburu", email = "oroi@gako.ai" }]
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+readme = "README.md"
+keywords = ["associative-memory", "chatbot", "spreading-activation", "semantic-network", "ACT-R"]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.0",
+    "scipy>=1.14",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "sqlite-vec>=0.1.6",
+    "openai>=1.40",
+    "anthropic>=0.40",
+    "claude-agent-sdk>=0.2.100",
+]
+
+[project.urls]
+Homepage = "https://oroi.gako.ai"
+Repository = "https://github.com/igorlaburu/oroi"
+Preprint = "https://doi.org/10.5281/zenodo.21208930"
+
+[project.scripts]
+oroi = "oroi.cli:main"
+oroi-chat = "oroi.chat.loop:main"
+
+[dependency-groups]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/oroi"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.uv]
+python-preference = "only-managed"

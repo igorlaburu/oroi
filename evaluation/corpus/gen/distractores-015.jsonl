@@ -1,0 +1,14 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Elena trabaja de abogado"}
+{"type": "turn", "user": "Diego trabaja de profesora"}
+{"type": "turn", "user": "Javier trabaja de enfermero"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "probe", "question": "¿en qué trabaja Elena?", "expect_context": ["abogado"], "avoid_context": ["profesora", "enfermero"], "expect_answer": "abogado"}

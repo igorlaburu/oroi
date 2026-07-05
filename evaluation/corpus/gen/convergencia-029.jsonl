@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Sofía vive en Murcia"}
+{"type": "turn", "user": "Diego vive en Murcia"}
+{"type": "turn", "user": "Diego es profesora"}
+{"type": "turn", "user": "Luis es profesora"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "probe", "question": "¿quién es profesora y vive en Murcia?", "expect_context": ["Diego"], "avoid_context": ["Luis", "Sofía"], "expect_answer": "Diego"}

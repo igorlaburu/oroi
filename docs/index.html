@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oroi — memoria continua para una conversación infinita</title>
+<meta name="description" content="Oroi: una red semántica para agentes conversacionales. Memoria asociativa con dinámica de activación inspirada en la memoria humana.">
+<style>
+  :root { --tinta: #1a1a1a; --gris: #777; --rojo: #c0392b; --linea: #e2e2e2; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: var(--tinta);
+         max-width: 42rem; margin: 0 auto; padding: 4rem 1.5rem 6rem; line-height: 1.65; }
+  h1 { font-size: 2.6rem; font-weight: normal; letter-spacing: -0.01em; }
+  h1 b { color: var(--rojo); font-weight: bold; }
+  .tagline { font-style: italic; color: var(--gris); font-size: 1.15rem; margin: 0.4rem 0 2.5rem; }
+  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.12em;
+       color: var(--gris); font-weight: normal; margin: 2.8rem 0 0.9rem;
+       border-bottom: 1px solid var(--linea); padding-bottom: 0.35rem; }
+  p { margin-bottom: 1rem; }
+  .red { display: flex; justify-content: center; margin: 2.2rem 0; }
+  .enlaces a { display: inline-block; margin: 0.25rem 1.6rem 0.25rem 0; color: var(--rojo);
+               text-decoration: none; border-bottom: 1px solid transparent; }
+  .enlaces a:hover { border-bottom-color: var(--rojo); }
+  .hipotesis { border-left: 3px solid var(--rojo); padding: 0.2rem 0 0.2rem 1.1rem;
+               font-style: italic; color: #444; margin: 1.4rem 0; }
+  .numeros { color: var(--gris); font-size: 0.95rem; }
+  footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--linea);
+           color: var(--gris); font-size: 0.9rem; }
+  footer a { color: var(--gris); }
+</style>
+</head>
+<body>
+<h1><b>Oroi</b></h1>
+<p class="tagline">Memoria continua para una conversación infinita</p>
+
+<div class="red">
+<svg width="360" height="120" viewBox="0 0 360 120" aria-hidden="true">
+  <defs><marker id="p" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+    <path d="M0,0 L7,3.5 L0,7 z" fill="#888"/></marker></defs>
+  <line x1="76" y1="62" x2="164" y2="50" stroke="#888" stroke-width="3.2" marker-end="url(#p)"/>
+  <line x1="196" y1="48" x2="286" y2="60" stroke="#888" stroke-width="2.2" marker-end="url(#p)"/>
+  <line x1="58" y1="52" x2="30" y2="26" stroke="#ccc" stroke-width="1.4" marker-end="url(#p)"/>
+  <line x1="70" y1="74" x2="52" y2="100" stroke="#ccc" stroke-width="1.4" marker-end="url(#p)"/>
+  <circle cx="62" cy="62" r="15" fill="#e74c3c" stroke="#a93226" stroke-width="3"/>
+  <circle cx="180" cy="48" r="13" fill="#f5b7b1" stroke="#cd6155" stroke-width="3"/>
+  <circle cx="300" cy="62" r="12" fill="#fdedec" stroke="#d98880" stroke-width="3"/>
+  <circle cx="22" cy="18" r="9" fill="#fff" stroke="#ccc" stroke-width="2.5"/>
+  <circle cx="46" cy="106" r="9" fill="#fff" stroke="#ccc" stroke-width="2.5"/>
+</svg>
+</div>
+
+<p><b style="color:var(--rojo)">Oroi</b> (euskera: raíz de <i>oroitu</i>, «recordar») es una memoria
+asociativa para agentes conversacionales: una <b>red semántica con dinámica de activación</b>
+inspirada en la memoria humana. Lo mencionado se activa, la activación se propaga a lo asociado,
+todo decae con los turnos, lo repetido se consolida y el desuso apaga — recordar combina el
+reconocimiento (lo que sigue activo) con la evocación (propagación desde las pistas de la pregunta).</p>
+
+<div class="hipotesis">La recuperación sensible a la activación supera a la recuperación por
+similitud vectorial pura en conversaciones largas con referencias recurrentes y deriva temática.</div>
+
+<p class="numeros">En una evaluación de 224 escenarios, Oroi supera al RAG híbrido 0,75 frente a
+0,55 en recall de recuperación (gana en 43 escenarios y no pierde en ninguno; p&lt;10⁻⁴), con la
+ventaja concentrada en los casos que confunden a la búsqueda por similitud: distractores, datos que
+cambian y cadenas de tres asociaciones.</p>
+
+<h2>Preprint</h2>
+<p class="enlaces">
+  <a href="oroi-preprint-v1-es.pdf">📄 Castellano (PDF)</a>
+  <a href="oroi-preprint-v1-en.pdf">📄 English (PDF)</a>
+  <a href="https://doi.org/10.5281/zenodo.21208930">DOI: 10.5281/zenodo.21208930</a>
+</p>
+
+<h2>Código</h2>
+<p>La librería (Python, SQLite + sqlite-vec), con la que se obtuvieron los resultados del
+preprint, se publicará próximamente en
+<a style="color:var(--rojo); text-decoration:none" href="https://github.com/igorlaburu/oroi">github.com/igorlaburu/oroi</a>.
+El nombre <a style="color:var(--rojo); text-decoration:none" href="https://pypi.org/project/oroi/">oroi</a> está ya reservado en PyPI para este proyecto.</p>
+
+<footer>Igor Laburu · <a href="https://gako.ai">Gako AI</a> · oroi@gako.ai</footer>
+</body>
+</html>

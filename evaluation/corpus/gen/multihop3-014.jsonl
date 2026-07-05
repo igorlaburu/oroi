@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Carlos es hermano de Laura"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "Laura trabaja en Inditex"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "Inditex tiene su sede en Granada"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Carlos?", "expect_context": ["Granada"], "expect_answer": "Granada"}

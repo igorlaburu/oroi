@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Bilbao"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "session_break"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "session_break"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Bilbao"], "expect_answer": "Bilbao"}

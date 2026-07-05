@@ -1,0 +1,16 @@
+__pycache__/
+*.egg-info/
+dist/
+.env
+*.db
+*.db-shm
+*.db-wal
+*.viz.jsonl
+*.lastreply
+*.live.html
+*.html
+!docs/*.html
+evaluation/judge-checkpoint-*.jsonl
+evaluation/locomo-checkpoint.jsonl
+evaluation/corpus/locomo10.json
+evaluation/.locomo-bases/

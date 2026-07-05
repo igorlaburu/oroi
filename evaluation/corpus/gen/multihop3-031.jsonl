@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Carlos es hermano de Javier"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "Javier trabaja en Cabify"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "Cabify tiene su sede en Murcia"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Carlos?", "expect_context": ["Murcia"], "expect_answer": "Murcia"}

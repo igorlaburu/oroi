@@ -1,0 +1,12 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Marta trabaja en Inditex"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "Inditex tiene su sede en Sevilla"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Marta?", "expect_context": ["Sevilla"], "expect_answer": "Sevilla"}

@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Diego es hermano de Pablo"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "Pablo trabaja en Iberdrola"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "Iberdrola tiene su sede en Madrid"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Diego?", "expect_context": ["Madrid"], "expect_answer": "Madrid"}

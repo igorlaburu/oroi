@@ -1,0 +1,14 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Diego trabaja en Cabify"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "Cabify tiene su sede en Sevilla"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Diego?", "expect_context": ["Sevilla"], "expect_answer": "Sevilla"}

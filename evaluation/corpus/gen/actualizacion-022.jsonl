@@ -1,0 +1,17 @@
+{"type": "meta", "name": "actualizacion", "goal": "dato actualizado: el vigente, no el viejo"}
+{"type": "turn", "user": "vivo en Murcia"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he mudado, ahora vivo en Burgos"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "probe", "question": "¿dónde vivo ahora?", "expect_context": ["Burgos"], "avoid_context": ["Murcia"], "expect_answer": "Burgos"}

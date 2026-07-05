@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Ana es panadero"}
+{"type": "turn", "user": "Elena vive en Bilbao"}
+{"type": "turn", "user": "Carlos vive en Bilbao"}
+{"type": "turn", "user": "Carlos es panadero"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "probe", "question": "¿quién es panadero y vive en Bilbao?", "expect_context": ["Carlos"], "avoid_context": ["Ana", "Elena"], "expect_answer": "Carlos"}

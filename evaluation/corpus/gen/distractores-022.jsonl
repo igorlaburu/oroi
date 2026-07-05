@@ -1,0 +1,12 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Carlos trabaja de enfermero"}
+{"type": "turn", "user": "Javier trabaja de abogado"}
+{"type": "turn", "user": "Diego trabaja de panadero"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "probe", "question": "¿en qué trabaja Diego?", "expect_context": ["panadero"], "avoid_context": ["abogado", "enfermero"], "expect_answer": "panadero"}

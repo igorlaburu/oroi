@@ -1,0 +1,9 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Marta trabaja de fontanero"}
+{"type": "turn", "user": "Carlos trabaja de enfermero"}
+{"type": "turn", "user": "Laura trabaja de abogado"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "probe", "question": "¿en qué trabaja Marta?", "expect_context": ["fontanero"], "avoid_context": ["abogado", "enfermero"], "expect_answer": "fontanero"}

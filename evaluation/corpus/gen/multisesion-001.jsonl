@@ -1,0 +1,20 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Gijón"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "session_break"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "session_break"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Gijón"], "expect_answer": "Gijón"}

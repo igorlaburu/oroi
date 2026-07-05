@@ -1,0 +1,14 @@
+{"type": "meta", "name": "distractores", "goal": "varios referentes, mismo predicado"}
+{"type": "turn", "user": "Luis trabaja de arquitecto"}
+{"type": "turn", "user": "Ana trabaja de cocinero"}
+{"type": "turn", "user": "Sofía trabaja de panadero"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "probe", "question": "¿en qué trabaja Ana?", "expect_context": ["cocinero"], "avoid_context": ["arquitecto", "panadero"], "expect_answer": "cocinero"}

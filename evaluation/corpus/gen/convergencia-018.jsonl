@@ -1,0 +1,9 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Laura es profesora"}
+{"type": "turn", "user": "Luis es profesora"}
+{"type": "turn", "user": "Elena vive en Bilbao"}
+{"type": "turn", "user": "Laura vive en Bilbao"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿quién es profesora y vive en Bilbao?", "expect_context": ["Laura"], "avoid_context": ["Luis", "Elena"], "expect_answer": "Laura"}

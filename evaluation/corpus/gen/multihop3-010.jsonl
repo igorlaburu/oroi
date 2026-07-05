@@ -1,0 +1,17 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Elena es hermana de Javier"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "Javier trabaja en Naturgy"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "Naturgy tiene su sede en Granada"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Elena?", "expect_context": ["Granada"], "expect_answer": "Granada"}

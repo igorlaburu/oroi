@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Luis es enfermero"}
+{"type": "turn", "user": "Carlos vive en Vigo"}
+{"type": "turn", "user": "Elena vive en Vigo"}
+{"type": "turn", "user": "Carlos es enfermero"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿quién es enfermero y vive en Vigo?", "expect_context": ["Carlos"], "avoid_context": ["Luis", "Elena"], "expect_answer": "Carlos"}

@@ -1,0 +1,12 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Elena trabaja en Repsol"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "hoy ha hecho un día estupendo"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "Repsol tiene su sede en Gijón"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Elena?", "expect_context": ["Gijón"], "expect_answer": "Gijón"}

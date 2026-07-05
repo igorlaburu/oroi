@@ -1,0 +1,9 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Elena vive en Bilbao"}
+{"type": "turn", "user": "Diego vive en Bilbao"}
+{"type": "turn", "user": "Marta es dentista"}
+{"type": "turn", "user": "Diego es dentista"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "estoy un poco cansado esta semana"}
+{"type": "probe", "question": "¿quién es dentista y vive en Bilbao?", "expect_context": ["Diego"], "avoid_context": ["Marta", "Elena"], "expect_answer": "Diego"}

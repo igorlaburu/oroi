@@ -1,0 +1,8 @@
+{"type": "meta", "name": "distractores", "goal": "Varios hechos parecidos: ¿recupera el del referente correcto y no el del distractor?"}
+{"type": "turn", "user": "mi hermano Pablo trabaja de enfermero en el hospital"}
+{"type": "turn", "user": "mi amiga Laura trabaja de profesora en un instituto"}
+{"type": "turn", "user": "mi vecino Carlos trabaja de cocinero en un restaurante"}
+{"type": "turn", "user": "este finde hemos quedado todos para una barbacoa"}
+{"type": "turn", "user": "hace un calor horrible estos últimos días"}
+{"type": "turn", "user": "me he apuntado a clases de natación los martes"}
+{"type": "probe", "question": "¿en qué trabaja Laura?", "expect_context": ["profesora"], "expect_answer": "profesora", "avoid_context": ["enfermero", "cocinero"]}

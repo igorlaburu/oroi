@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Luis es dentista"}
+{"type": "turn", "user": "Luis vive en Bilbao"}
+{"type": "turn", "user": "Sofía vive en Bilbao"}
+{"type": "turn", "user": "Elena es dentista"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "probe", "question": "¿quién es dentista y vive en Bilbao?", "expect_context": ["Luis"], "avoid_context": ["Elena", "Sofía"], "expect_answer": "Luis"}

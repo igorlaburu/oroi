@@ -1,0 +1,9 @@
+{"type": "meta", "name": "actualizacion", "goal": "Un dato se actualiza: ¿recupera el vigente y no el viejo? (RAG puro tiende a traer ambos)."}
+{"type": "turn", "user": "mi color favorito es el azul, desde siempre"}
+{"type": "turn", "user": "este verano quiero aprender a tocar la guitarra"}
+{"type": "turn", "user": "he empezado a ir al gimnasio tres días por semana"}
+{"type": "turn", "user": "me han recomendado una serie policíaca muy buena"}
+{"type": "turn", "user": "pues mira, he cambiado de opinión: ahora mi color favorito es el verde"}
+{"type": "turn", "user": "ayer cené con mi hermana en un restaurante italiano"}
+{"type": "turn", "user": "tengo que llevar el portátil a reparar esta semana"}
+{"type": "probe", "question": "¿cuál es mi color favorito?", "expect_context": ["verde"], "expect_answer": "verde", "avoid_context": ["azul"]}

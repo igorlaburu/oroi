@@ -1,0 +1,12 @@
+{"type": "meta", "name": "multihop", "goal": "respuesta a dos saltos; el puente no está en la pregunta"}
+{"type": "turn", "user": "Javier trabaja en Mercadona"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "Mercadona tiene su sede en Burgos"}
+{"type": "turn", "user": "hace bastante frío para la época"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿en qué ciudad trabaja Javier?", "expect_context": ["Burgos"], "expect_answer": "Burgos"}

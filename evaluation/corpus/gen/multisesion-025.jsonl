@@ -1,0 +1,16 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Vigo"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "session_break"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "session_break"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Vigo"], "expect_answer": "Vigo"}

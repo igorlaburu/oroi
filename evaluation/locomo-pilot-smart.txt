@@ -1,0 +1,103 @@
+LoCoMo: 2 conversaciones · 788 turnos a percibir · 45 sondas × 2 condiciones
+  conv-26 · b · RAG crudo · 1/25
+  conv-26 · b · RAG crudo · 2/25
+  conv-26 · b · RAG crudo · 3/25
+  conv-26 · b · RAG crudo · 4/25
+  conv-26 · b · RAG crudo · 5/25
+  conv-26 · b · RAG crudo · 6/25
+  conv-26 · b · RAG crudo · 7/25
+  conv-26 · b · RAG crudo · 8/25
+  conv-26 · b · RAG crudo · 9/25
+  conv-26 · b · RAG crudo · 10/25
+  conv-26 · b · RAG crudo · 11/25
+  conv-26 · b · RAG crudo · 12/25
+  conv-26 · b · RAG crudo · 13/25
+  conv-26 · b · RAG crudo · 14/25
+  conv-26 · b · RAG crudo · 15/25
+  conv-26 · b · RAG crudo · 16/25
+  conv-26 · b · RAG crudo · 17/25
+  conv-26 · b · RAG crudo · 18/25
+  conv-26 · b · RAG crudo · 19/25
+  conv-26 · b · RAG crudo · 20/25
+  conv-26 · b · RAG crudo · 21/25
+  conv-26 · b · RAG crudo · 22/25
+  conv-26 · b · RAG crudo · 23/25
+  conv-26 · b · RAG crudo · 24/25
+  conv-26 · b · RAG crudo · 25/25
+  conv-26 · c · llm-mind · 1/25
+  conv-26 · c · llm-mind · 2/25
+  conv-26 · c · llm-mind · 3/25
+  conv-26 · c · llm-mind · 4/25
+  conv-26 · c · llm-mind · 5/25
+  conv-26 · c · llm-mind · 6/25
+  conv-26 · c · llm-mind · 7/25
+  conv-26 · c · llm-mind · 8/25
+  conv-26 · c · llm-mind · 9/25
+  conv-26 · c · llm-mind · 10/25
+  conv-26 · c · llm-mind · 11/25
+  conv-26 · c · llm-mind · 12/25
+  conv-26 · c · llm-mind · 13/25
+  conv-26 · c · llm-mind · 14/25
+  conv-26 · c · llm-mind · 15/25
+  conv-26 · c · llm-mind · 16/25
+  conv-26 · c · llm-mind · 17/25
+  conv-26 · c · llm-mind · 18/25
+  conv-26 · c · llm-mind · 19/25
+  conv-26 · c · llm-mind · 20/25
+  conv-26 · c · llm-mind · 21/25
+  conv-26 · c · llm-mind · 22/25
+  conv-26 · c · llm-mind · 23/25
+  conv-26 · c · llm-mind · 24/25
+  conv-26 · c · llm-mind · 25/25
+  conv-30 · b · RAG crudo · 1/20
+  conv-30 · b · RAG crudo · 2/20
+  conv-30 · b · RAG crudo · 3/20
+  conv-30 · b · RAG crudo · 4/20
+  conv-30 · b · RAG crudo · 5/20
+  conv-30 · b · RAG crudo · 6/20
+  conv-30 · b · RAG crudo · 7/20
+  conv-30 · b · RAG crudo · 8/20
+  conv-30 · b · RAG crudo · 9/20
+  conv-30 · b · RAG crudo · 10/20
+  conv-30 · b · RAG crudo · 11/20
+  conv-30 · b · RAG crudo · 12/20
+  conv-30 · b · RAG crudo · 13/20
+  conv-30 · b · RAG crudo · 14/20
+  conv-30 · b · RAG crudo · 15/20
+  conv-30 · b · RAG crudo · 16/20
+  conv-30 · b · RAG crudo · 17/20
+  conv-30 · b · RAG crudo · 18/20
+  conv-30 · b · RAG crudo · 19/20
+  conv-30 · b · RAG crudo · 20/20
+  conv-30 · c · llm-mind · 1/20
+  conv-30 · c · llm-mind · 2/20
+  conv-30 · c · llm-mind · 3/20
+  conv-30 · c · llm-mind · 4/20
+  conv-30 · c · llm-mind · 5/20
+  conv-30 · c · llm-mind · 6/20
+  conv-30 · c · llm-mind · 7/20
+  conv-30 · c · llm-mind · 8/20
+  conv-30 · c · llm-mind · 9/20
+  conv-30 · c · llm-mind · 10/20
+  conv-30 · c · llm-mind · 11/20
+  conv-30 · c · llm-mind · 12/20
+  conv-30 · c · llm-mind · 13/20
+  conv-30 · c · llm-mind · 14/20
+  conv-30 · c · llm-mind · 15/20
+  conv-30 · c · llm-mind · 16/20
+  conv-30 · c · llm-mind · 17/20
+  conv-30 · c · llm-mind · 18/20
+  conv-30 · c · llm-mind · 19/20
+  conv-30 · c · llm-mind · 20/20
+
+LoCoMo · ANSWER@JUDGE
+condición         adversarial   inferencia    multi-hop   single-hop     temporal   global  (n)
+───────────────────────────────────────────────────────────────────────────────────────────────
+b · RAG crudo            0.00         0.00         0.00         0.30         0.10   0.09   45
+c · llm-mind             0.00         0.00         0.00         0.20         0.20   0.09   45
+
+LoCoMo · contexto-contiene-evidencia (control)
+condición         adversarial   inferencia    multi-hop   single-hop     temporal   global  (n)
+───────────────────────────────────────────────────────────────────────────────────────────────
+b · RAG crudo            0.60         0.00         0.10         0.40         0.80   0.42   45
+c · llm-mind             0.60         0.20         0.10         0.20         0.70   0.38   45

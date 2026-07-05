@@ -1,0 +1,15 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Carlos es hermano de Javier"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "Javier trabaja en Repsol"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "Repsol tiene su sede en Bilbao"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "probe", "question": "¿en qué ciudad trabaja el hermano de Carlos?", "expect_context": ["Bilbao"], "expect_answer": "Bilbao"}

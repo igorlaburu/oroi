@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Javier vive en Gijón"}
+{"type": "turn", "user": "Ana es dentista"}
+{"type": "turn", "user": "Laura es dentista"}
+{"type": "turn", "user": "Ana vive en Gijón"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "probe", "question": "¿quién es dentista y vive en Gijón?", "expect_context": ["Ana"], "avoid_context": ["Laura", "Javier"], "expect_answer": "Ana"}

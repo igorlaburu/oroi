@@ -1,0 +1,19 @@
+{"type": "meta", "name": "multisesion", "goal": "persistencia tras dormir y cambiar de sesión"}
+{"type": "turn", "user": "trabajo en Madrid"}
+{"type": "turn", "user": "me gusta pasear por la mañana"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "session_break"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "el jardín necesita un buen riego"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "session_break"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "probe", "question": "¿en qué ciudad trabajo?", "expect_context": ["Madrid"], "expect_answer": "Madrid"}

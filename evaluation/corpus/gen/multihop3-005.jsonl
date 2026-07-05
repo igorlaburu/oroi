@@ -1,0 +1,18 @@
+{"type": "meta", "name": "multihop3", "goal": "respuesta a tres saltos; el puente está lejos de la pregunta"}
+{"type": "turn", "user": "Carlos es hermano de Ana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "ayer vi una película muy entretenida"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "Ana trabaja en Naturgy"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "estoy leyendo un libro muy interesante"}
+{"type": "turn", "user": "Naturgy tiene su sede en Vigo"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿en qué ciudad trabaja la hermana de Carlos?", "expect_context": ["Vigo"], "expect_answer": "Vigo"}

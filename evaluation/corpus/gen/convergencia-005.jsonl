@@ -1,0 +1,10 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Luis vive en Sevilla"}
+{"type": "turn", "user": "Laura es arquitecto"}
+{"type": "turn", "user": "Laura vive en Sevilla"}
+{"type": "turn", "user": "Ana es arquitecto"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "tengo ganas de que llegue el finde"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "probe", "question": "¿quién es arquitecto y vive en Sevilla?", "expect_context": ["Laura"], "avoid_context": ["Ana", "Luis"], "expect_answer": "Laura"}

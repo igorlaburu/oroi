@@ -1,0 +1,8 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Javier vive en Madrid"}
+{"type": "turn", "user": "Laura es arquitecto"}
+{"type": "turn", "user": "Javier es arquitecto"}
+{"type": "turn", "user": "Elena vive en Madrid"}
+{"type": "turn", "user": "ayer cené algo ligero en casa"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "probe", "question": "¿quién es arquitecto y vive en Madrid?", "expect_context": ["Javier"], "avoid_context": ["Laura", "Elena"], "expect_answer": "Javier"}

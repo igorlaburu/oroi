@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Pablo es profesora"}
+{"type": "turn", "user": "Marta vive en Burgos"}
+{"type": "turn", "user": "Elena vive en Burgos"}
+{"type": "turn", "user": "Marta es profesora"}
+{"type": "turn", "user": "estoy pensando en cambiar de móvil"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "turn", "user": "el otro día fui al cine"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "tengo una llamada pendiente para mañana"}
+{"type": "probe", "question": "¿quién es profesora y vive en Burgos?", "expect_context": ["Marta"], "avoid_context": ["Pablo", "Elena"], "expect_answer": "Marta"}

@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Diego es cocinero"}
+{"type": "turn", "user": "Marta es cocinero"}
+{"type": "turn", "user": "Marta vive en Granada"}
+{"type": "turn", "user": "Laura vive en Granada"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he comprado unas zapatillas nuevas"}
+{"type": "turn", "user": "me apetece un café ahora mismo"}
+{"type": "turn", "user": "tengo que hacer la compra luego"}
+{"type": "turn", "user": "he quedado con unos amigos el sábado"}
+{"type": "probe", "question": "¿quién es cocinero y vive en Granada?", "expect_context": ["Marta"], "avoid_context": ["Diego", "Laura"], "expect_answer": "Marta"}

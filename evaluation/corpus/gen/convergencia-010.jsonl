@@ -1,0 +1,11 @@
+{"type": "meta", "name": "convergencia", "goal": "intersección de dos pistas; los distractores cumplen solo una"}
+{"type": "turn", "user": "Diego es panadero"}
+{"type": "turn", "user": "Diego vive en Madrid"}
+{"type": "turn", "user": "Marta vive en Madrid"}
+{"type": "turn", "user": "Luis es panadero"}
+{"type": "turn", "user": "he dormido fatal esta noche"}
+{"type": "turn", "user": "el tráfico estaba imposible esta mañana"}
+{"type": "turn", "user": "he empezado a hacer deporte por las tardes"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "turn", "user": "me he aficionado a los crucigramas"}
+{"type": "probe", "question": "¿quién es panadero y vive en Madrid?", "expect_context": ["Diego"], "avoid_context": ["Luis", "Marta"], "expect_answer": "Diego"}
