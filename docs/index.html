@@ -17,11 +17,13 @@
          background: var(--fondo); color: var(--tinta); line-height: 1.7;
          -webkit-font-smoothing: antialiased; }
   .lienzo { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem 5rem; }
-  .miga { padding: 1.1rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  .cabecera-sitio { padding: 1.4rem 0 0; }
+  .cabecera-sitio img { height: 52px; display: block; }
+  .miga { padding: 0.7rem 0 0; font-family: ui-monospace, "SF Mono", Menlo, monospace;
           font-size: 0.85rem; color: var(--gris); }
   .miga a { color: var(--gris); text-decoration: none; }
-  .miga a:hover { color: var(--tinta); }
-  .miga b { color: var(--rojo); font-weight: 700; }
+  .miga a:hover { color: var(--rojo); }
+  .miga a.actual { color: var(--rojo); font-weight: 700; }
 
   header { padding: 3.2rem 0 0; text-align: center; }
   .marca { font-size: 4rem; font-weight: 800; letter-spacing: 0.03em; color: var(--rojo); line-height: 1; }
@@ -77,7 +79,8 @@
 <body>
 <div class="lienzo">
 
-<div class="miga"><a href="https://gako.ai" aria-label="gako.ai"><img src="gako.png" alt="gako.ai" style="height:26px;vertical-align:middle"></a><span style="margin:0 0.45rem">/</span><b style="vertical-align:middle">oroi</b></div>
+<div class="cabecera-sitio"><a href="https://gako.ai" aria-label="gako.ai"><img src="gako.png" alt="gako.ai"></a></div>
+<nav class="miga" aria-label="migas de pan"><a href="https://gako.ai">gako.ai</a><span style="margin:0 0.45rem">/</span><a class="actual" href="https://oroi.gako.ai">oroi</a></nav>
 
 <header>
   <div class="marca">OROI</div>
