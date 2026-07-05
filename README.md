@@ -1,7 +1,7 @@
 # Oroi
 
 > **Oroi** (euskera: raíz de *oroitu*, «recordar») — una red semántica para agentes conversacionales.
-> *Memoria continua para una conversación infinita.*
+> *Memoria para una conversación infinita.*
 
 Oroi es una memoria asociativa para chatbots y agentes LLM que almacena la conversación como una
 **red semántica con dinámica de activación** inspirada en la memoria humana: lo mencionado se
