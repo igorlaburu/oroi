@@ -135,7 +135,7 @@ recorre las asociaciones hasta la respuesta, apagándose con la distancia</div>
 <p class="cuerpo">Tres hechos con la misma forma: «Elena es fontanera», «Carlos es abogado»,
 «Pablo es cocinero». Pregunta por el oficio de Carlos: para un buscador por similitud las tres
 frases compiten, y te llegan las tres como contexto. Una memoria debería saber cuál es la de
-Carlos — y cuál es la vigente si su oficio cambió.</p>
+Carlos —y cuál es la vigente si su oficio cambió.</p>
 
 <p class="cuerpo">La memoria habitual de un chatbot (RAG) guarda la conversación como texto y
 recupera lo que más se <b>parece</b>. Pero una conversación no es un documento: lo que importa
@@ -150,7 +150,7 @@ similitud vectorial pura en conversaciones largas con referencias recurrentes y 
 
 <div class="datos">
   <div class="dato"><b>0,75 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0,55</b><span>recall de recuperación frente a RAG híbrido (embeddings + BM25, fusión RRF), 224 escenarios</span></div>
-  <div class="dato"><b>43 / 0</b><span>escenarios ganados / perdidos (test de McNemar, p&lt;10⁻⁴)</span></div>
+  <div class="dato"><b>43 / 0</b><span>escenarios ganados / perdidos; el resto, empates (test de McNemar, p&lt;10⁻⁴)</span></div>
   <div class="dato"><b>0,97 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0</b><span>con distractores: hechos casi idénticos que compiten por aflorar</span></div>
 </div>
 
