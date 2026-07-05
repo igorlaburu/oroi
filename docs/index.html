@@ -8,12 +8,15 @@
 <meta property="og:title" content="Oroi — memoria continua para una conversación infinita">
 <meta property="og:description" content="Una red semántica para agentes conversacionales: recordar por activación, no solo por similitud. Preprint + código abierto (Apache-2.0).">
 <meta property="og:url" content="https://oroi.gako.ai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23DC2626'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fdedec'/%3E%3C/svg%3E">
 <style>
   :root { --tinta: #16181a; --gris: #6d7278; --rojo: #DC2626; --rojo-osc: #b91c1c;
           --fondo: #ffffff; --linea: #e6e8ea; --carta: #fafbfc; --term: #101214; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  body { font-family: Inter, "Segoe UI", Helvetica, Arial, sans-serif;
          background: var(--fondo); color: var(--tinta); line-height: 1.7;
          -webkit-font-smoothing: antialiased; }
   .lienzo { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem 5rem; }
@@ -26,8 +29,8 @@
   .miga a.actual { color: var(--rojo); font-weight: 700; }
 
   header { padding: 3.2rem 0 0; text-align: center; }
-  .marca { font-size: 4rem; font-weight: 800; letter-spacing: 0.03em; color: var(--rojo); line-height: 1; }
-  .tagline { font-size: 1.25rem; font-weight: 500; margin-top: 0.6rem; }
+  .marca { font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 4rem; font-weight: 800; letter-spacing: 0.03em; color: var(--rojo); line-height: 1; }
+  .tagline { font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 1.25rem; font-weight: 700; margin-top: 0.6rem; }
   .sub { color: var(--gris); font-size: 0.98rem; margin-top: 0.4rem; }
   .sub i { font-style: italic; }
 
@@ -48,17 +51,17 @@
   .datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1.9rem 0; }
   .dato { background: var(--carta); border: 1px solid var(--linea); border-radius: 10px;
           padding: 0.95rem 0.6rem; text-align: center; }
-  .dato b { display: block; font-size: 1.55rem; color: var(--rojo); font-weight: 800; white-space: nowrap; }
+  .dato b { font-family: "Plus Jakarta Sans", Inter, sans-serif; display: block; font-size: 1.55rem; color: var(--rojo); font-weight: 800; white-space: nowrap; }
   .dato span { font-size: 0.79rem; color: var(--gris); line-height: 1.35; display: block; margin-top: 0.25rem; }
 
-  h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gris);
+  h2 { font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gris);
        font-weight: 700; margin: 2.8rem 0 0.9rem; }
   .cartas { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
   .carta { display: block; background: var(--carta); border: 1px solid var(--linea);
            border-radius: 10px; padding: 1rem 1.15rem; text-decoration: none; color: var(--tinta);
            transition: border-color 0.15s; }
   .carta:hover { border-color: var(--rojo); }
-  .carta b { color: var(--rojo); }
+  .carta b { font-family: "Plus Jakarta Sans", Inter, sans-serif; color: var(--rojo); }
   .carta small { color: var(--gris); display: block; margin-top: 0.1rem; font-size: 0.84rem; line-height: 1.45; }
 
   .terminal { background: var(--term); color: #e8eaec; border-radius: 10px; padding: 1rem 1.25rem;
