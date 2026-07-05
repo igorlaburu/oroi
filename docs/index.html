@@ -53,7 +53,8 @@
   .dato { background: var(--carta); border: 1px solid var(--linea); border-radius: 10px;
           padding: 1rem 1.05rem; }
   .dato b { font-family: "Plus Jakarta Sans", Inter, sans-serif; display: block; font-size: 1rem;
-            color: var(--tinta); font-weight: 700; line-height: 1.4; margin-bottom: 0.35rem; }
+            color: var(--tinta); font-weight: 700; line-height: 1.4; margin-bottom: 0.35rem;
+            min-height: 2.8em; }  /* dos líneas reservadas: los cuerpos arrancan alineados */
   .dato span { font-size: 0.82rem; color: var(--gris); line-height: 1.45; display: block; }
   .dato span em { font-style: normal; color: var(--rojo); font-weight: 700; }
 
@@ -78,6 +79,7 @@
   footer a { color: var(--gris); }
   @media (max-width: 560px) {
     .titulo { font-size: 1.8rem; } .datos { grid-template-columns: 1fr; }
+    .dato b { min-height: 0; }
     .cartas { grid-template-columns: 1fr; } .red svg { width: 100%; height: auto; }
   }
 </style>
