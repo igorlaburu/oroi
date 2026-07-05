@@ -97,68 +97,9 @@
   </nav>
 </header>
 
-<div class="red">
-<svg width="660" height="220" viewBox="0 0 1200 400" aria-label="red semántica: la pista de la pregunta activa la cadena de asociaciones">
-  <defs>
-    <radialGradient id="n1" cx="35%" cy="32%"><stop offset="0%" stop-color="#ef7460"/><stop offset="70%" stop-color="#c73e2c"/><stop offset="100%" stop-color="#a52f1f"/></radialGradient>
-    <radialGradient id="n2" cx="35%" cy="32%"><stop offset="0%" stop-color="#f4a294"/><stop offset="70%" stop-color="#dd7261"/><stop offset="100%" stop-color="#c65e4e"/></radialGradient>
-    <radialGradient id="n3" cx="35%" cy="32%"><stop offset="0%" stop-color="#fbd9d2"/><stop offset="70%" stop-color="#edac9f"/><stop offset="100%" stop-color="#dd9689"/></radialGradient>
-    <radialGradient id="ng" cx="35%" cy="32%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#e2e5e8"/></radialGradient>
-    <filter id="halo1" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="16"/><feComponentTransfer><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
-    </filter>
-    <filter id="halo2" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="13"/><feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
-    </filter>
-    <filter id="halo3" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="11"/><feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
-    </filter>
-    <filter id="sombra" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#16181a" flood-opacity="0.12"/>
-    </filter>
-  </defs>
-
-  <!-- curvas de la cadena (bezier suaves, sin puntas toscas) -->
-  <path d="M 254 252 C 340 210, 400 178, 486 172" fill="none" stroke="#c9ced3" stroke-width="4" stroke-linecap="round"/>
-  <path d="M 610 176 C 700 190, 760 222, 838 244" fill="none" stroke="#d5d9dd" stroke-width="3" stroke-linecap="round"/>
-  <!-- chevrones finos de dirección -->
-  <path d="M 470 162 L 490 172 L 468 182" fill="none" stroke="#aab0b6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 824 232 L 843 245 L 818 252" fill="none" stroke="#bcc1c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- ramas tenues a satélites -->
-  <path d="M 156 208 C 130 170, 116 140, 108 108" fill="none" stroke="#e7eaec" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M 176 306 C 152 336, 138 356, 130 376" fill="none" stroke="#e7eaec" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M 540 128 C 528 96, 522 74, 520 52" fill="none" stroke="#e7eaec" stroke-width="2.4" stroke-linecap="round"/>
-  <path d="M 900 202 C 926 168, 944 144, 958 122" fill="none" stroke="#eceef0" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M 924 274 C 964 296, 996 310, 1024 318" fill="none" stroke="#eceef0" stroke-width="2.2" stroke-linecap="round"/>
-
-  <!-- etiquetas de relación sobre la curva -->
-  <text x="368" y="168" font-size="22" font-style="italic" fill="#9aa0a6" text-anchor="middle" font-family="Inter">contacto</text>
-  <text x="726" y="182" font-size="22" font-style="italic" fill="#9aa0a6" text-anchor="middle" font-family="Inter">recibe</text>
-
-  <!-- halos -->
-  <circle cx="190" cy="256" r="62" fill="#DC2626" filter="url(#halo1)"/>
-  <circle cx="548" cy="170" r="50" fill="#dd7261" filter="url(#halo2)"/>
-  <circle cx="880" cy="248" r="42" fill="#edac9f" filter="url(#halo3)"/>
-
-  <!-- esferas -->
-  <circle cx="190" cy="256" r="58" fill="url(#n1)" filter="url(#sombra)"/>
-  <circle cx="548" cy="170" r="46" fill="url(#n2)" filter="url(#sombra)"/>
-  <circle cx="880" cy="248" r="38" fill="url(#n3)" filter="url(#sombra)"/>
-  <!-- satélites grises -->
-  <circle cx="104" cy="92" r="17" fill="url(#ng)"/>
-  <circle cx="126" cy="390" r="15" fill="url(#ng)"/>
-  <circle cx="519" cy="38" r="14" fill="url(#ng)"/>
-  <circle cx="966" cy="108" r="13" fill="url(#ng)"/>
-  <circle cx="1038" cy="322" r="14" fill="url(#ng)"/>
-
-  <!-- etiquetas de nodo -->
-  <text x="190" y="348" font-size="28" font-weight="700" fill="#16181a" text-anchor="middle" font-family="Inter">cliente</text>
-  <text x="548" y="248" font-size="27" font-weight="600" fill="#3d4147" text-anchor="middle" font-family="Inter">laura</text>
-  <text x="880" y="322" font-size="27" font-weight="600" fill="#6d7278" text-anchor="middle" font-family="Inter">los jueves</text>
-</svg>
-</div>
-<div class="leyenda">«¿qué día visito al cliente?» — la pista activa la red y la activación
-recorre las asociaciones hasta la respuesta, apagándose con la distancia</div>
+<div class="red"><img src="red.png" alt="la pista «cliente» activa la cadena: cliente, contacto, laura; laura recibe los jueves" style="width:100%;max-width:680px;height:auto"></div>
+<div class="leyenda">la pista activa la red y la activación recorre las asociaciones hasta la
+respuesta, apagándose con la distancia</div>
 
 <p class="cuerpo">Hace un mes le contaste a tu asistente que tu contacto en el cliente ahora es
 Laura. La semana pasada, que Laura solo recibe los jueves. Hoy le preguntas: ¿qué día visito al
