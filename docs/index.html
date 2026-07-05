@@ -51,9 +51,11 @@
 
   .datos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin: 1.9rem 0; }
   .dato { background: var(--carta); border: 1px solid var(--linea); border-radius: 10px;
-          padding: 0.95rem 0.6rem; text-align: center; }
-  .dato b { font-family: "Plus Jakarta Sans", Inter, sans-serif; display: block; font-size: 1.55rem; color: var(--rojo); font-weight: 800; white-space: nowrap; }
-  .dato span { font-size: 0.79rem; color: var(--gris); line-height: 1.35; display: block; margin-top: 0.25rem; }
+          padding: 1rem 1.05rem; }
+  .dato b { font-family: "Plus Jakarta Sans", Inter, sans-serif; display: block; font-size: 1rem;
+            color: var(--tinta); font-weight: 700; line-height: 1.4; margin-bottom: 0.35rem; }
+  .dato span { font-size: 0.82rem; color: var(--gris); line-height: 1.45; display: block; }
+  .dato span em { font-style: normal; color: var(--rojo); font-weight: 700; }
 
   h2 { font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gris);
        font-weight: 700; margin: 2.8rem 0 0.9rem; }
@@ -118,9 +120,9 @@ desuso apaga.</p>
 similitud vectorial pura en conversaciones largas con referencias recurrentes y deriva temática.</div>
 
 <div class="datos">
-  <div class="dato"><b>0,75 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0,55</b><span>recall de recuperación frente a RAG híbrido (embeddings + BM25, fusión RRF), 224 escenarios</span></div>
-  <div class="dato"><b>43 / 0</b><span>escenarios ganados / perdidos; el resto, empates (test de McNemar, p&lt;10⁻⁴)</span></div>
-  <div class="dato"><b>0,97 <span style="font-size:0.95rem;color:var(--gris)">vs</span> 0</b><span>con distractores: hechos casi idénticos que compiten por aflorar</span></div>
+  <div class="dato"><b>Recupera mejor que un RAG híbrido</b><span>recall <em>0,75</em> frente a 0,55 sobre 224 escenarios (embeddings + BM25, fusión RRF)</span></div>
+  <div class="dato"><b>Y nunca peor</b><span>gana <em>43</em> escenarios, no pierde ninguno; el resto, empates (McNemar, p&lt;10⁻⁴)</span></div>
+  <div class="dato"><b>Distingue hechos casi idénticos</b><span><em>0,97</em> frente a 0 con distractores que compiten por aflorar</span></div>
 </div>
 
 <h2>El preprint</h2>
