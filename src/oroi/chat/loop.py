@@ -5,8 +5,10 @@ session.py (compartida con el servidor web) y todo acceso a la mente pasa por
 la fachada Mind. Aquí solo está el bucle de consola y el cableado de providers.
 """
 
+import sys
 import threading
 import time
+from pathlib import Path
 
 from ..extraction.extractor import TurnExtractor
 from ..mind import Mind
@@ -17,10 +19,17 @@ from ..providers.settings import ProviderSettings
 from ..viz import graph_view
 from .session import ChatSession
 
-DB_PATH = "mind.db"
+def default_db() -> str:
+    """La memoria vive en ~/.oroi/memoria.db salvo que se pida otra: abrir la base que
+    haya en la carpeta de turno sería una emboscada (charlarías con una memoria ajena
+    sin saberlo). Explícito > implícito."""
+    home = Path.home() / ".oroi"
+    home.mkdir(exist_ok=True)
+    return str(home / "mind.db")
 
 
-def build_mind(db_path: str = DB_PATH) -> Mind:
+def build_mind(db_path: str | None = None) -> Mind:
+    db_path = db_path or default_db()
     settings = ProviderSettings()
     if settings.memory_provider == "openai":
         from ..providers.openai_compat import OpenAICompatEmbedder, OpenAICompatLLM
@@ -71,15 +80,23 @@ class IdleSleeper(threading.Thread):
                 self.mind.sleep()
 
 
-def main() -> None:
-    mind = build_mind()
+def main(db_path: str | None = None) -> None:
+    settings = ProviderSettings()
+    if not settings.has_credentials():
+        sys.exit("oroi: no encuentro credenciales de ningún proveedor.\n"
+                 "  Copia .env.example a .env (en esta carpeta o en ~/.oroi/) y rellena tus claves\n"
+                 "  — Azure OpenAI, o un endpoint OpenAI-compatible como Ollama para correr en local.\n"
+                 "  Guía: https://github.com/igorlaburu/oroi#instalación")
+    db_path = db_path or default_db()
+    mind = build_mind(db_path)
     mind.wake()
     sleeper = IdleSleeper(mind, mind.config.idle_sleep_seconds)
     sleeper.start()
-    journal = graph_view.timeline_path(DB_PATH)
-    session = ChatSession(mind, build_chat(ProviderSettings()),
+    journal = graph_view.timeline_path(db_path)
+    session = ChatSession(mind, build_chat(settings),
                           on_turn=lambda snap: graph_view.record(snap, journal))
-    print("oroi · chat experimental (escribe /salir para terminar)\n")
+    print(f"oroi · memoria: {db_path} · {mind.turn} turnos vividos")
+    print("chat experimental (escribe /salir para terminar)\n")
     while True:
         try:
             user_text = input("tú> ").strip()
@@ -90,9 +107,9 @@ def main() -> None:
         try:
             reply = session.turn(user_text)
         except Exception as error:  # un turno fallido (timeout, red) no tira la sesión
-            print(f"\nmente> (me he quedado en blanco: {error})\n")
+            print(f"\nasistente> (me he quedado en blanco: {error})\n")
             continue
-        print(f"\nmente> {reply}\n")
+        print(f"\nasistente> {reply}\n")
         sleeper.touch()
     if sleeper.pending:  # al despedirse, la mente duerme lo que quedara fresco
         print("(consolidando recuerdos antes de salir…)")

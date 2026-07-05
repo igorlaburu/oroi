@@ -1,10 +1,19 @@
-"""Configuración de proveedores (.env)."""
+"""Configuración de proveedores: .env de la carpeta actual, con ~/.oroi/.env de respaldo."""
+
+from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class ProviderSettings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    # el .env local tiene prioridad (último gana); el global evita copiar credenciales por carpeta
+    model_config = SettingsConfigDict(
+        env_file=(str(Path.home() / ".oroi" / ".env"), ".env"), extra="ignore")
+
+    def has_credentials(self) -> bool:
+        """¿Hay algún proveedor de memoria configurado? (para fallar amable, no con traceback)"""
+        return bool(self.azure_api_key or (self.memory_provider == "openai"
+                                           and (self.openai_api_key or self.openai_base_url)))
 
     # Azure OpenAI: extractor y embeddings (mismos identificadores que web.agent.simple)
     azure_api_base: str = ""

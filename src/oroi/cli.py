@@ -12,11 +12,11 @@ BIENVENIDA = """\
 Oroi — memoria continua para una conversación infinita  ·  https://oroi.gako.ai
 
 Para empezar:
-  oroi chat                     conversar con memoria (requiere credenciales en .env)
-  oroi info --db memoria.db     resumen de una memoria: tamaño, lo activo, lo consolidado
-  oroi viz  --db memoria.db     la película de la memoria, en HTML interactivo
+  oroi chat        conversar con memoria (credenciales en .env o ~/.oroi/.env)
+  oroi info        resumen de tu memoria: tamaño, lo activo, lo consolidado
+  oroi viz         la película de la memoria, en HTML interactivo
 
-¿Sin memoria todavía?  uv run python examples/demo_conversation.py  graba una de demostración.
+Tu memoria vive en ~/.oroi/mind.db (cámbiala con --db en cualquier comando).
 Ayuda completa: oroi --help
 """
 
@@ -26,10 +26,11 @@ def main() -> None:
     if args.command is None:
         print(BIENVENIDA)
     elif args.command == "info":
-        print(_info(args.db))
+        from .chat.loop import default_db
+        print(_info(args.db or default_db()))
     elif args.command == "chat":
         from .chat.loop import main as chat_main
-        chat_main()
+        chat_main(args.db)
     elif args.command == "consolidate":
         from .chat.loop import build_mind
         print(build_mind(args.db).sleep().model_dump_json(indent=2))
@@ -48,8 +49,9 @@ def _parse() -> argparse.Namespace:
     parser.add_argument("-V", "--version", action="version", version=f"oroi {version('oroi')}")
     commands = parser.add_subparsers(dest="command", required=False)
     info = commands.add_parser("info", help="resumen de la memoria (sin credenciales): tamaño, activo, consolidado")
-    info.add_argument("--db", default="mind.db", help="ruta de la base de memoria")
-    commands.add_parser("chat", help="REPL conversacional con memoria (equivale a oroi-chat)")
+    info.add_argument("--db", default=None, help="ruta de la base de memoria (por defecto ~/.oroi/mind.db)")
+    chat = commands.add_parser("chat", help="REPL conversacional con memoria (equivale a oroi-chat)")
+    chat.add_argument("--db", default=None, help="ruta de la base de memoria (por defecto ~/.oroi/mind.db)")
     consolidate = commands.add_parser("consolidate", help="ejecuta un ciclo de consolidación ('sueño')")
     consolidate.add_argument("--db", default="mind.db", help="ruta de la base de memoria")
     viz = commands.add_parser("viz", help="exporta la red a un HTML estático interactivo (D3.js)")

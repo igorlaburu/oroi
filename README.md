@@ -27,13 +27,24 @@ inspired by human memory. Spanish-first project; English preprint available belo
 
 ## Instalación
 
-Requiere Python ≥ 3.12. Desde el repositorio (la release en PyPI llegará como 0.1.0):
+Requiere Python ≥ 3.12 con soporte de extensiones SQLite (los intérpretes de uv, Homebrew,
+conda y las distribuciones Linux lo traen; el instalador de python.org para macOS, no).
 
 ```bash
-git clone https://github.com/igorlaburu/oroi && cd oroi
-uv sync
-cp .env.example .env   # y rellena tus credenciales (Azure OpenAI para extracción y embeddings)
+# como librería, dentro de tu proyecto (venv, uv, poetry...):
+pip install oroi
+
+# como herramienta de línea de comandos, global:
+uvx oroi            # o: pipx install oroi
+
+# desde el repositorio, para desarrollo:
+git clone https://github.com/igorlaburu/oroi && cd oroi && uv sync
 ```
+
+Credenciales: copia `.env.example` a `.env` (en tu carpeta de trabajo o en `~/.oroi/.env` para
+tenerlas globales) y rellena tus claves — Azure OpenAI, o cualquier endpoint OpenAI-compatible
+como Ollama para correr 100 % en local. Tu memoria vive por defecto en `~/.oroi/mind.db`
+(cámbiala con `--db` en cualquier comando).
 
 ## Uso en diez líneas
 
