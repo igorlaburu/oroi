@@ -647,8 +647,13 @@ function render() {
     }
     play.textContent = '⏸';
     if (+slider.value >= +slider.max) slider.value = 0;
+    window.__pasada = 0;
     timer = setInterval(() => {
-      if (+slider.value >= +slider.max) { stopPlay(); show(+slider.max); return; }  // al acabar, presente
+      if (+slider.value >= +slider.max) {   // al acabar: rebobina y repite unas vueltas, luego para
+        window.__pasada = (window.__pasada || 0) + 1;
+        if (window.__pasada < 3) { slider.value = 0; show(0); return; }
+        stopPlay(); show(+slider.max); window.__pasada = 0; return;
+      }
       slider.value = +slider.value + 1;
       show(+slider.value);
     }, 800);
