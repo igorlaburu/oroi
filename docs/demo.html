@@ -65,7 +65,10 @@
   #chat-thread { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
   #chat .msg { max-width: 85%; padding: 7px 10px; border-radius: 12px; font-size: 12px;
                line-height: 1.4; white-space: pre-wrap; }
-  #chat .msg.user { align-self: flex-end; background: #1f2937; color: #fff; border-bottom-right-radius: 3px; }
+  #chat .msg.user { align-self: stretch; background: #eef1f5; color: #1f2937;
+                    border: 1px solid #dbe0e6; border-left: 3px solid #c0392b;
+                    border-radius: 6px; font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+                    font-size: 11.5px; }
   #chat .msg.mind { align-self: flex-start; background: rgba(255,255,255,.9); color: #1f2937;
                     border: 1px solid #d1d5db; border-bottom-left-radius: 3px; }
   #chat .msg.sys { align-self: center; background: none; color: #b45309; font-size: 11px; }
@@ -640,7 +643,7 @@ function render() {
   const stopPlay = () => { clearInterval(timer); timer = null; play.textContent = '▶'; };
   play.onclick = () => {
     if (timer) {  // pausar = volver al presente (estado actual)
-      stopPlay(); slider.value = slider.max; show(+slider.value); return;
+      stopPlay(); return;  // pausa: congela en el turno actual
     }
     play.textContent = '⏸';
     if (+slider.value >= +slider.max) slider.value = 0;
@@ -746,6 +749,25 @@ function render() {
   show(TIMELINE.length - 1, false);
   if (JOURNAL) setInterval(refresh, 3000);  // refleja cambios externos (REPL, sueño) sin recargar
 }
+</script>
+
+<div id="pista-nodos" style="position:fixed;bottom:22px;left:50%;transform:translateX(-50%);
+  z-index:40;background:rgba(22,24,26,.9);color:#f5efe8;font:600 12.5px/1.4 -apple-system,Segoe UI,sans-serif;
+  padding:9px 16px;border-radius:99px;box-shadow:0 4px 14px rgba(0,0,0,.25);pointer-events:none;
+  transition:opacity .6s;">Haz clic en un concepto para ver de dónde salió</div>
+<script>
+window.addEventListener('load', () => setTimeout(() => {
+  const s = document.getElementById('slider'), p = document.getElementById('play');
+  if (s && p) {                       // arranca en el primer mensaje y reproduce
+    s.value = 0; s.dispatchEvent(new Event('input'));
+    if (p.textContent.trim() !== '\u23f8') p.click();   // ▶ → ⏸
+  }
+  const cy = document.getElementById('cy'), pista = document.getElementById('pista-nodos');
+  if (cy && pista) cy.addEventListener('click', () => {  // al tocar la red, la pista se retira
+    pista.style.opacity = '0'; setTimeout(() => pista.remove(), 700);
+  }, { once: true });
+  setTimeout(() => { if (pista) { pista.style.opacity='0'; setTimeout(()=>pista.remove(),700); } }, 12000);
+}, 900));
 </script>
 </body>
 </html>
