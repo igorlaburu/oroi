@@ -11,7 +11,7 @@
   body { margin: 0; font: 14px system-ui, sans-serif; overflow: hidden;
          background: radial-gradient(circle at 50% 50%, #f9fafb 0%, #f3f4f6 15%, #e5e7eb 30%,
                      #d1d5db 45%, #c4c9d1 60%, #b8bec8 75%, #9ca3af 100%); }
-  #bar { position: fixed; top: 0; left: 0; right: 0; height: 60px; display: flex; gap: 16px;
+  #bar { position: fixed; top: 38px; left: 0; right: 0; height: 60px; display: flex; gap: 16px;
          align-items: center; padding: 0 22px; background: rgba(255,255,255,.7);
          backdrop-filter: blur(8px); box-shadow: 0 1px 4px rgba(0,0,0,.08); z-index: 10; }
   #cy { position: absolute; inset: 0; }
@@ -29,7 +29,7 @@
   #title { flex: 0 1 auto; min-width: 0; margin: 0 18px; font-size: 15.5px; color: #111827;
            font-weight: 600; letter-spacing: .2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   /* controles de vista flotando sobre la red (esquina sup. der.) */
-  #viewctl { position: fixed; top: 72px; right: 16px; z-index: 15; display: flex; gap: 6px; }
+  #viewctl { position: fixed; top: 110px; right: 16px; z-index: 15; display: flex; gap: 6px; }
   .ctl { width: 32px; height: 32px; padding: 0; font-size: 17px; line-height: 1; border-radius: 8px;
          background: rgba(255,255,255,.85); color: #374151; box-shadow: 0 1px 4px rgba(0,0,0,.12); }
   .ctl:hover { background: #fff; }
@@ -114,11 +114,11 @@
 <body>
 <div id="demo-banner" style="position:fixed;top:0;left:0;right:0;z-index:50;
   background:#16181a;color:#f5efe8;font:600 13px/1.5 -apple-system,Segoe UI,sans-serif;
-  padding:8px 16px;text-align:center;">
-  Demostración · una conversación cotidiana de ejemplo percibida por Oroi ·
+  height:38px;line-height:22px;padding:8px 16px;text-align:center;box-sizing:border-box;">
+  Demostración · Oroi percibiendo una serie de mensajes cotidianos ·
   <a href="https://oroi.gako.ai" style="color:#e8604c;text-decoration:none">oroi.gako.ai</a>
   &nbsp;·&nbsp; pulsa <b>▶</b> para ver crecer la memoria turno a turno
-</div><style>body{padding-top:44px}</style>
+</div>
 <div id="bar">
   <div class="bar-side">
     <a id="brand" href="https://oroi.gako.ai" target="_blank" rel="noopener"><span id="logo">OROI</span></a>
@@ -141,7 +141,7 @@
 <svg id="cy"></svg>
 <div id="tip"></div>
 <div id="chat" style="display:none">
-  <h3>conversación</h3>
+  <h3>los mensajes</h3>
   <div id="chat-thread"></div>
   <form id="chat-form"><input id="chat-input" placeholder="escribe…" autocomplete="off"><button>▶</button></form>
 </div>
