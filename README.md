@@ -79,6 +79,11 @@ uv run oroi consolidate --db memoria.db # consolidación bajo demanda
 ¿Sin conversación propia todavía? `uv run python examples/demo_conversation.py` graba una
 conversación cotidiana de demostración en `examples/demo.db`.
 
+## Integración en tu agente
+
+La guía completa —el ciclo del turno, una mente por usuario, dormir/despertar, operación—
+está en [INTEGRACION.md](INTEGRACION.md).
+
 ## Proveedores
 
 | Pieza | Soporte hoy |
