@@ -103,7 +103,7 @@
   /* Vertical: chat ARRIBA (mitad), red ABAJO → dos cuadrados apilados. */
   @media (max-width: 860px) and (orientation: portrait) {
     #chat { left: 8px; right: 8px; top: calc(var(--bar-h, 96px) + 46px);
-            height: calc((100vh - var(--bar-h, 96px)) / 2 - 14px); bottom: auto; width: auto; }
+            height: 188px; bottom: auto; width: auto; }  /* ~3 mensajes: el resto, para la red */
     #panel { left: 8px; right: 8px; top: auto; bottom: 8px; width: auto; max-height: 46vh; }
   }
   /* Horizontal: chat estrecho a la IZQUIERDA, resto red. */
@@ -118,10 +118,11 @@
 <div id="demo-banner" style="position:fixed;top:0;left:0;right:0;z-index:50;
   background:#16181a;color:#f5efe8;font:600 13px/1.5 -apple-system,Segoe UI,sans-serif;
   height:38px;line-height:22px;padding:8px 16px;text-align:center;box-sizing:border-box;">
-  Demostración · Oroi percibiendo una serie de mensajes cotidianos ·
-  <a href="https://oroi.gako.ai" style="color:#e8604c;text-decoration:none">oroi.gako.ai</a>
-  &nbsp;·&nbsp; pulsa <b>▶</b> para ver crecer la memoria turno a turno
+  Demostración<span class="bx"> · Oroi percibiendo una serie de mensajes cotidianos</span> ·
+  <a href="https://oroi.gako.ai" style="color:#e8604c;text-decoration:none">oroi.gako.ai</a><span class="bx">
+  &nbsp;·&nbsp; pulsa <b>▶</b> para ver crecer la memoria turno a turno</span>
 </div>
+<style>@media (max-width: 700px) { #demo-banner .bx { display: none; } }</style>
 <div id="bar">
   <div class="bar-side">
     <a id="brand" href="https://oroi.gako.ai" target="_blank" rel="noopener"><span id="logo">OROI</span></a>
@@ -202,9 +203,9 @@ function render() {
   }
   function pads() {
     if (chatMode === 'none') return { left: 0, top: 26, bottom: 16 };
-    if (mqStack.matches) {                          // vertical: red = mitad INFERIOR (bajo el chat)
+    if (mqStack.matches) {                          // vertical: chat compacto arriba, red a lo grande
       const b = barH();
-      return { left: 0, top: b + Math.round((H - b) / 2) + 6, bottom: 14 };
+      return { left: 0, top: b + 46 + 188 + 12, bottom: 10 };
     }
     if (mqNarrow.matches) return { left: Math.round(0.40 * W) + 20, top: barH() + 8, bottom: 12 };
     return { left: 328, top: 26, bottom: 16 };
