@@ -66,10 +66,23 @@ La memoria persiste en `memoria.db`: reabrir es continuar, no empezar de cero. `
 consolida (fusión de duplicados, promoción de asociaciones repetidas, poda); en el REPL y el
 servidor ocurre solo al quedar inactiva la conversación.
 
+## La voz (experimental)
+
+Observabilidad del pensamiento: `mind.consciousness()` verbaliza los conceptos más activos de
+la red en un pensamiento en primera persona, con valencia (−2…+2) y señal de sorpresa — qué
+tiene la mente en mente, en lenguaje llano. Es **solo lectura** (no escribe en el grafo ni
+altera la dinámica; una simulación funcional, sin ninguna pretensión fenomenal) y está
+**apagada por defecto**: cuesta una llamada extra al modelo rápido por pensamiento. Detalles y
+disparo automático por turno (`consciousness_enabled`) en [INTEGRACION.md](INTEGRACION.md);
+`mind.thoughts()` devuelve el diario, cuya serie de valencia deja graficar por qué estados ha
+pasado una conversación.
+
 ## La línea de comandos
 
 ```bash
 uv run oroi-chat                        # REPL conversacional con memoria (proveedor por .env)
+uv run oroi chat --voice                # …con la voz interior bajo cada respuesta
+uv run oroi thoughts --db memoria.db    # el diario de la voz (sin credenciales)
 uv run oroi viz --db memoria.db         # la película de la memoria, en HTML autocontenido
 uv run oroi serve --db memoria.db       # visor en vivo + chat contra la mente real
 uv run oroi replay --db memoria.db      # reconstruye la película desde los episodios

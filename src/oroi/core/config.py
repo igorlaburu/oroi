@@ -51,3 +51,7 @@ class DynamicsConfig(BaseModel):
     fade_threshold: float = Field(0.05, description="base_strength bajo el cual un nodo inactivo se poda (lógicamente)")
     fade_grace_turns: int = Field(20, description="Turnos de gracia antes de que un nodo pueda podarse")
     episode_min_cluster: int = Field(3, description="Nodos mínimos de un clúster caliente para abstraer un episodio")
+    consciousness_enabled: bool = Field(False, description="La voz (consciencia de SOLO LECTURA): tras cada turno, ChatSession verbaliza la coalición activa en un pensamiento con valencia y sorpresa, de forma asíncrona (el turno nunca la espera). Apagada = invarianza total con el comportamiento sin voz. Mind.consciousness() funciona siempre bajo demanda, con o sin este flag: el flag gobierna solo el disparo automático por turno")
+    consciousness_every: int = Field(1, description="Cadencia de la voz en TURNOS (el tiempo es conversacional, no hay reloj): un pensamiento cada N turnos")
+    consciousness_top_k: int = Field(6, description="Nodos de la coalición dominante (los más activos) que forman el material del pensamiento")
+    consciousness_max_episodes: int = Field(2, description="Fragmentos literales de episodios testigo (del nodo más activo) que acompañan a la coalición: el material sale entero del grafo, la voz no puede inventar")

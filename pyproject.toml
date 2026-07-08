@@ -1,6 +1,6 @@
 [project]
 name = "oroi"
-version = "0.1.1"
+version = "0.1.2b1"
 description = "Memoria asociativa experimental para chatbots: red semántica con dinámica de activación inspirada en la memoria humana"
 authors = [{ name = "Igor Laburu", email = "oroi@gako.ai" }]
 license = { text = "Apache-2.0" }

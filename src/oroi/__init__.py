@@ -8,11 +8,12 @@ de modo que la librería es agnóstica del chatbot y del proveedor que la use.
 Autor: Igor Laburu — Gako AI <oroi@gako.ai>. Licencia Apache-2.0.
 """
 
+from .consciousness import Thought
 from .core.config import DynamicsConfig
 from .mind import Mind
 from .providers.base import Chat, Embedder, Extractor
 
-__all__ = ["Mind", "DynamicsConfig", "Embedder", "Extractor", "Chat"]
+__all__ = ["Mind", "DynamicsConfig", "Embedder", "Extractor", "Chat", "Thought"]
 
-__version__ = "0.1.0"
+__version__ = "0.1.2b1"
 __author__ = "Igor Laburu — Gako AI <oroi@gako.ai>"

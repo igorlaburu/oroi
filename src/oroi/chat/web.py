@@ -193,6 +193,9 @@ class _Handler(http.server.SimpleHTTPRequestHandler):
                 return self._redirect("/login")
         if self.path == "/":  # raíz → el visor (URL de demo limpia, sin el nombre del fichero)
             return self._redirect(f"/{self.live_page}")
+        if self.path == "/consciousness":  # el último pensamiento de la voz ({} si no hay)
+            thoughts = self.session.mind.thoughts(limit=1)
+            return self._json(thoughts[-1].model_dump() if thoughts else {})
         super().do_GET()
 
     def do_POST(self) -> None:

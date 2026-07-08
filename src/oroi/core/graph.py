@@ -95,6 +95,16 @@ class Graph:
         rows = self.db.execute(f"SELECT id, label FROM nodes WHERE id IN ({marks})", ids)
         return {r["id"]: r["label"] for r in rows}
 
+    def node_episodes(self, node_id: int, limit: int, max_chars: int = 300) -> list[str]:
+        """Fragmentos literales recientes que atestiguan un nodo (el texto habla)."""
+        rows = self.db.execute(
+            "SELECT substr(e.text, 1, ?) AS t FROM episodes e "
+            "JOIN node_sources ns ON ns.episode_id = e.id "
+            "WHERE ns.node_id = ? ORDER BY e.turn DESC LIMIT ?",
+            (max_chars, node_id, limit),
+        )
+        return [r["t"] for r in rows]
+
     def snapshot(self, turn: int) -> NetworkSnapshot:
         """Toda la red de un vistazo, desvanecidos incluidos (en la viz son fantasmas)."""
         projection = self._semantic_projection()

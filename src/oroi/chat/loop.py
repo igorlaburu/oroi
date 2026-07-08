@@ -80,7 +80,7 @@ class IdleSleeper(threading.Thread):
                 self.mind.sleep()
 
 
-def main(db_path: str | None = None) -> None:
+def main(db_path: str | None = None, voice: bool = False) -> None:
     settings = ProviderSettings()
     if not settings.has_credentials():
         sys.exit("oroi: no encuentro credenciales de ningún proveedor.\n"
@@ -110,6 +110,8 @@ def main(db_path: str | None = None) -> None:
             print(f"\nasistente> (me he quedado en blanco: {error})\n")
             continue
         print(f"\nasistente> {reply}\n")
+        if voice:  # en el REPL la voz se pide en el sitio (síncrona): salida limpia, sin carreras
+            _print_voice(mind)
         sleeper.touch()
     if sleeper.pending:  # al despedirse, la mente duerme lo que quedara fresco
         print("(consolidando recuerdos antes de salir…)")
@@ -117,6 +119,14 @@ def main(db_path: str | None = None) -> None:
             mind.sleep()
         except Exception as error:
             print(f"(el sueño falló, queda para la próxima: {error})")
+
+
+def _print_voice(mind: Mind) -> None:
+    """La voz atenuada bajo la respuesta: qué tiene la mente en mente, con su valencia."""
+    thought = mind.consciousness()
+    if thought:
+        mark = " · ⚡giro" if thought.surprise else ""
+        print(f"\033[2m〔 voz · valencia {thought.valence:+d}{mark} · {thought.text} 〕\033[0m\n")
 
 
 if __name__ == "__main__":

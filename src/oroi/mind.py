@@ -7,6 +7,7 @@ salidas serializables, sin estado global.
 import threading
 from collections.abc import Iterable
 
+from .consciousness import Consciousness, Thought, thoughts_from_store
 from .consolidation.consolidator import ConsolidationReport, Consolidator
 from .core import activation as dynamics
 from .core import retrieval
@@ -30,6 +31,9 @@ class Mind:
         # judge: el LLM del consolidador (fusiones dudosas y episodios); None = solo mecánica.
         self.consolidator = Consolidator(self.graph, self.store, self.config,
                                          self._lock, judge, embedder)
+        # La voz reutiliza el mismo LLM rápido; sin él, consciousness() devuelve None.
+        self._consciousness = Consciousness(self.graph, self.store, self.config,
+                                            self._lock, judge)
         self.last_surprise = 0.0  # error de predicción del último turno percibido (0 = encajó)
 
     @property
@@ -117,6 +121,20 @@ class Mind:
         """Foto del estado completo de la red — visualización hoy, endpoint web mañana."""
         with self._lock:
             return self.graph.snapshot(self.store.turn)
+
+    def consciousness(self) -> Thought | None:
+        """La voz (consciencia de SOLO LECTURA): verbaliza la coalición activa en un
+        pensamiento con valencia (−2..+2) y sorpresa. Una llamada al LLM rápido; no
+        escribe en el grafo (solo archiva en `thoughts`) y su prosa jamás se re-percibe.
+        None si la red está fría o no hay LLM. Disponible siempre bajo demanda; el
+        disparo automático por turno lo gobierna `consciousness_enabled` (ChatSession)."""
+        return self._consciousness.reflect(self.store.turn,
+                                           self.last_surprise >= self.config.surprise_threshold)
+
+    def thoughts(self, limit: int = 20) -> list[Thought]:
+        """El diario de la voz: los últimos pensamientos, cronológicos. Lectura pura."""
+        with self._lock:
+            return thoughts_from_store(self.store, limit)
 
     def sleep(self) -> ConsolidationReport:
         """Consolida ("sueño"): fusión, promoción, strength, poda, abstracción.

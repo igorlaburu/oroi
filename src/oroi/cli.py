@@ -30,7 +30,10 @@ def main() -> None:
         print(_info(args.db or default_db()))
     elif args.command == "chat":
         from .chat.loop import main as chat_main
-        chat_main(args.db)
+        chat_main(args.db, voice=args.voice)
+    elif args.command == "thoughts":
+        from .chat.loop import default_db
+        print(_thoughts(args.db or default_db(), args.limit))
     elif args.command == "consolidate":
         from .chat.loop import build_mind
         print(build_mind(args.db).sleep().model_dump_json(indent=2))
@@ -52,6 +55,13 @@ def _parse() -> argparse.Namespace:
     info.add_argument("--db", default=None, help="ruta de la base de memoria (por defecto ~/.oroi/mind.db)")
     chat = commands.add_parser("chat", help="REPL conversacional con memoria (equivale a oroi-chat)")
     chat.add_argument("--db", default=None, help="ruta de la base de memoria (por defecto ~/.oroi/mind.db)")
+    chat.add_argument("--voice", action="store_true",
+                      help="muestra la voz interior tras cada respuesta (experimental: "
+                           "una llamada extra al LLM rápido por turno)")
+    thoughts = commands.add_parser(
+        "thoughts", help="el diario de la voz (sin credenciales): qué ha ido pensando la mente")
+    thoughts.add_argument("--db", default=None, help="ruta de la base de memoria (por defecto ~/.oroi/mind.db)")
+    thoughts.add_argument("-n", type=int, default=20, dest="limit", help="pensamientos a mostrar")
     consolidate = commands.add_parser("consolidate", help="ejecuta un ciclo de consolidación ('sueño')")
     consolidate.add_argument("--db", default="mind.db", help="ruta de la base de memoria")
     viz = commands.add_parser("viz", help="exporta la red a un HTML estático interactivo (D3.js)")
@@ -105,6 +115,27 @@ def _replay(args: argparse.Namespace):
     for snap in timeline:
         graph_view.record(snap, journal)
     return graph_view.export_html(timeline, args.out or f"{args.db}.replay.html")
+
+
+def _thoughts(db_path: str, limit: int) -> str:
+    """El diario de la voz, de solo lectura y sin proveedores (como `oroi info`)."""
+    if not Path(db_path).exists():
+        return f"no existe {db_path}"
+    db = sqlite3.connect(db_path)
+    db.row_factory = sqlite3.Row
+    try:
+        rows = db.execute("SELECT turn, text, valence, surprise FROM thoughts "
+                          "ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
+    except sqlite3.OperationalError:
+        return "esta memoria aún no tiene voz (se estrena al abrirla con la versión con consciencia)"
+    finally:
+        db.close()
+    if not rows:
+        return ("la voz no ha pensado nada todavía — actívala con `oroi chat --voice` o "
+                "con consciousness_enabled=True en la config")
+    lines = [f"t{r['turn']:>4}  {r['valence']:+d}{'  ⚡giro' if r['surprise'] else ''}\n"
+             f"      {r['text']}" for r in reversed(rows)]
+    return "\n".join(lines)
 
 
 def _info(db_path: str) -> str:

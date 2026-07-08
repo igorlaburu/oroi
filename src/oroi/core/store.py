@@ -57,6 +57,17 @@ CREATE TABLE IF NOT EXISTS coactivations (
 -- Índice léxico (BM25) sobre los labels: el reconocimiento es mixto vector+léxico,
 -- para que "guggen" reconozca "museo guggenheim" (los embeddings flaquean con nombres propios).
 CREATE VIRTUAL TABLE IF NOT EXISTS nodes_fts USING fts5(label, tokenize='unicode61');
+-- El diario de la voz (consciencia de solo lectura): lo que la mente fue pensando, turno a turno.
+-- Su texto JAMÁS se re-percibe (cicatriz del eco): vive aparte del grafo por construcción.
+CREATE TABLE IF NOT EXISTS thoughts (
+    id         INTEGER PRIMARY KEY,
+    turn       INTEGER NOT NULL,
+    text       TEXT NOT NULL,
+    valence    INTEGER NOT NULL DEFAULT 0,
+    surprise   INTEGER NOT NULL DEFAULT 0,
+    chain      TEXT NOT NULL DEFAULT '[]',
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
 """
 
 
@@ -106,6 +117,19 @@ class Store:
     def set_meta(self, key: str, value: str) -> None:
         self.conn.execute("INSERT OR REPLACE INTO meta (key, value) VALUES (?, ?)", (key, value))
         self.conn.commit()
+
+    def add_thought(self, turn: int, text: str, valence: int, surprise: bool, chain: str) -> None:
+        self.conn.execute(
+            "INSERT INTO thoughts (turn, text, valence, surprise, chain) VALUES (?, ?, ?, ?, ?)",
+            (turn, text, valence, int(surprise), chain),
+        )
+        self.conn.commit()
+
+    def recent_thoughts(self, limit: int) -> list:
+        return self.conn.execute(
+            "SELECT turn, text, valence, surprise, chain FROM thoughts ORDER BY id DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
 
     @property
     def turn(self) -> int:

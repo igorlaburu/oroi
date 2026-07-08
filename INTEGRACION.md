@@ -106,6 +106,44 @@ respuesta = session.turn(mensaje)        # percibe + recuerda + responde
   (ventana), `episode_context_turns` (±N turnos vecinos alrededor de cada recuerdo — útil en
   régimen de diálogo, contraproducente con hechos confusables consecutivos).
 
+## La voz (experimental, desde 0.1.2): qué tiene la mente en mente
+
+Observabilidad de solo lectura: un pensamiento en primera persona que verbaliza los conceptos
+más activos de la red, con **valencia** (−2 muy negativo … +2 muy positivo) y **sorpresa**
+(el último turno rompió el hilo). No escribe en el grafo, no toca la dinámica, y su texto
+jamás se re-percibe. Cuesta **una llamada extra al LLM rápido por pensamiento** — por eso
+está **apagada por defecto** y se decide al instanciar.
+
+```python
+from oroi import DynamicsConfig, Mind, Thought
+
+# Opción A — bajo demanda (sin flag, sin coste por turno): pides el pensamiento cuando quieras.
+mind = Mind(db, embedder, extractor, judge=llm)      # el judge (LLM rápido) es también la voz
+thought = mind.consciousness()                        # Thought | None (None si la red está fría)
+if thought:
+    print(thought.text)      # "sigo dándole vueltas a la mudanza, y eso me lleva a…"
+    print(thought.valence)   # -2..+2 — graficable turno a turno
+    print(thought.surprise)  # True = giro de conversación (revisa el hilo a fondo)
+    print(thought.chain)     # los conceptos verbalizados: los recibos del pensamiento
+
+# Opción B — automática por turno (ChatSession): se activa en la config al instanciar.
+config = DynamicsConfig(consciousness_enabled=True,   # apagada por defecto
+                        consciousness_every=1)        # cadencia en turnos
+mind = Mind(db, embedder, extractor, judge=llm, config=config)
+session = ChatSession(mind, tu_chat, on_thought=lambda t: guardar_o_pintar(t))
+# on_thought se dispara en un hilo aparte DESPUÉS de entregar la respuesta:
+# el turno nunca espera a la voz; si el pensamiento anterior sigue en curso, se salta el ciclo.
+
+# El diario (lectura pura, sin LLM): los últimos pensamientos, cronológicos.
+for t in mind.thoughts(limit=50):
+    print(t.turn, t.valence, t.text)                  # la serie de valencia, lista para graficar
+```
+
+Notas: `Thought` es serializable (`model_dump()`); el diario persiste en la tabla `thoughts`
+de la propia base (`oroi thoughts --db …` lo lee sin credenciales, y `oroi serve` lo expone
+en `GET /consciousness`); si la coalición activa no tiene asociaciones ni recuerdos que hilar,
+el pensamiento es mecánico («tengo en la cabeza: …») y no gasta LLM.
+
 ## Lo que Oroi no hace (a propósito)
 
 - No responde por ti: no toca tu LLM conversacional ni tu prompt de sistema.

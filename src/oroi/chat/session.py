@@ -51,17 +51,22 @@ class ChatSession:
     """Un turno: percibe (respuesta previa + mensaje), recall, y responde el Conversador.
 
     `on_turn(snapshot)` es instrumentación opcional tras percibir (la viz graba ahí).
+    `on_thought(thought)` recibe la voz (consciencia de solo lectura) cuando
+    `consciousness_enabled` está activo — asíncrona: el turno nunca la espera.
     Los turnos se serializan con un lock: el REPL es secuencial, la web concurrente.
     """
 
-    def __init__(self, mind: Mind, chat: Chat, system: str = SYSTEM, on_turn=None):
+    def __init__(self, mind: Mind, chat: Chat, system: str = SYSTEM, on_turn=None,
+                 on_thought=None):
         self.mind = mind
         self.chat = chat
         self.system = system
         self.on_turn = on_turn
+        self.on_thought = on_thought
         self.window = Window(mind.config)
         self.last_reply = ""
         self._lock = threading.Lock()
+        self._voice_thread: threading.Thread | None = None
 
     def turn(self, user_text: str) -> str:
         with self._lock:
@@ -80,4 +85,22 @@ class ChatSession:
             self.window.add(turn, "user", user_text)
             self.window.add(turn, "assistant", reply)
             self.last_reply = reply
+            self._voice(turn)
             return reply
+
+    def _voice(self, turn: int) -> None:
+        """La voz, fuera del camino caliente: hilo daemon tras entregar la respuesta.
+        Si el pensamiento anterior sigue en curso, este ciclo se salta (nunca se encolan)."""
+        config = self.mind.config
+        if not config.consciousness_enabled or turn % config.consciousness_every != 0:
+            return
+        if self._voice_thread and self._voice_thread.is_alive():
+            return
+
+        def _reflect():
+            thought = self.mind.consciousness()  # nunca lanza; None si la red está fría
+            if thought and self.on_thought:
+                self.on_thought(thought)
+
+        self._voice_thread = threading.Thread(target=_reflect, daemon=True)
+        self._voice_thread.start()
