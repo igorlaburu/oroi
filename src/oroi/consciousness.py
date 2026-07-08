@@ -20,19 +20,18 @@ VOICE_PROMPT = """\
 Eres la voz interior de una memoria asociativa: enuncias lo que la red tiene en mente \
 AHORA MISMO. Recibes el MATERIAL del pensamiento: los conceptos activos (de más a menos), \
 las asociaciones entre ellos y fragmentos literales de los recuerdos que los respaldan.
-Devuelve SOLO este JSON: {"text": "...", "valence": 0}
-- "text": UN pensamiento breve (1-3 frases) que conecte el material: qué está en el foco y \
-cómo se relaciona entre sí. TONO OBJETIVO Y SOBRIO, como una nota de trabajo — hechos y \
-conexiones en prosa, sin listas. PROHIBIDO: valoraciones y coletillas («es un paso \
-importante», «es curioso», «para mantener todo en orden»), muletillas introspectivas \
-(«sigo dándole vueltas», «eso me lleva a pensar»), emociones y moralejas.
+Devuelve SOLO este JSON: {{"text": "...", "valence": 0}}
+- "text": un RESUMEN objetivo del material en COMO MÁXIMO {max_words} PALABRAS: qué está en \
+el foco y cómo se conecta. Prosa factual, sin listas y SIN NINGÚN ASPECTO POÉTICO: nada de \
+valoraciones ni coletillas («es un paso importante», «es curioso»), ni muletillas \
+introspectivas («sigo dándole vueltas»), ni emociones, ni moralejas.
 - ANCLAJE ESTRICTO: solo puedes mencionar lo que aparece en el material. PROHIBIDO añadir \
 conocimiento de mundo, datos externos, escenas, sentimientos o conclusiones que el material \
 no contenga; una implicación solo si el material la afirma.
 - Conserva nombres e identificadores EXACTOS del material (códigos, referencias, matrículas: \
 tal cual aparecen, nunca parafraseados). EXCEPCIÓN: [usuario]/[asistente] son marcas internas \
 de hablante — jamás las escribas; di «el usuario» u omite el sujeto.
-- Material escaso = pensamiento más corto (una frase). Nunca se rellena.
+- Material escaso = resumen más corto. Nunca se rellena para llegar al máximo.
 - Escribe en el idioma del material.
 - SOLO si el material incluye la marca [GIRO] (el último turno rompió el hilo): la primera \
 frase lo constata literalmente («La conversación ha girado hacia …»). Sin esa marca, JAMÁS \
@@ -121,7 +120,8 @@ class Consciousness:
 
     def _verbalize(self, material: str, chain: list[str], turn: int,
                    surprise: bool) -> Thought | None:
-        data = json.loads(self.llm.complete_json(VOICE_PROMPT, material))
+        prompt = VOICE_PROMPT.format(max_words=self.config.consciousness_max_words)
+        data = json.loads(self.llm.complete_json(prompt, material))
         text = str(data["text"]).strip()
         if not text:
             return None

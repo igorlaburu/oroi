@@ -55,3 +55,4 @@ class DynamicsConfig(BaseModel):
     consciousness_every: int = Field(1, description="Cadencia de la voz en TURNOS (el tiempo es conversacional, no hay reloj): un pensamiento cada N turnos")
     consciousness_top_k: int = Field(6, description="Nodos de la coalición dominante (los más activos) que forman el material del pensamiento")
     consciousness_max_episodes: int = Field(2, description="Fragmentos literales de episodios testigo (del nodo más activo) que acompañan a la coalición: el material sale entero del grafo, la voz no puede inventar")
+    consciousness_max_words: int = Field(40, description="Presupuesto de palabras del pensamiento: la voz es un RESUMEN objetivo del contenido activo en como máximo estas palabras, sin aspectos poéticos")
