@@ -38,20 +38,34 @@ def _activate(mind, ids: dict[str, int], levels: dict[str, float]) -> None:
         mind.graph.set_activation(ids[label], value)
 
 
-def test_coalition_serializes_top_k_with_edges_and_episodes(make_mind):
-    config = DynamicsConfig(consciousness_top_k=2)
+def test_coalition_is_text_only_with_relative_floor(make_mind):
+    config = DynamicsConfig(consciousness_top_k=5)
     mind = make_mind(config=config)
     ids = seed_chain(mind, ["bilbao", "mudanza", "batman"])
+    # batman queda bajo el suelo RELATIVO al líder (3.0 · 0.35 > 0.5), aun cabiendo en top_k.
     _activate(mind, ids, {"bilbao": 3.0, "mudanza": 2.0, "batman": 0.5})
     episode = mind.graph.add_episode(1, "user", "trabajé años en bilbao")
     mind.graph.link_episode([ids["bilbao"]], episode)
 
     material, chain = coalition(mind.graph, config)
 
-    assert chain == ["bilbao", "mudanza"]           # top-2, de más a menos activo
-    assert "batman" not in material                  # el tercero queda fuera del foco
-    assert "bilbao --leads_to--> mudanza" in material
-    assert "trabajé años en bilbao" in material      # el recuerdo testigo acompaña
+    assert chain == ["bilbao", "mudanza"]            # el foco caliente, de más a menos
+    assert "batman" not in material                  # cortado por el suelo relativo
+    assert "-->" not in material                     # SIN aristas: la voz piensa desde el texto
+    assert "trabajé años en bilbao" in material      # el recuerdo literal es el contenido
+
+
+def test_coalition_keeps_a_pair_to_weave(make_mind):
+    """El suelo relativo nunca deja al líder solo si hay un segundo nodo (par para hilar)."""
+    config = DynamicsConfig()
+    mind = make_mind(config=config)
+    ids = seed_chain(mind, ["lider", "debil"])
+    _activate(mind, ids, {"lider": 5.0, "debil": 0.2})   # débil MUY por debajo del suelo
+    episode = mind.graph.add_episode(1, "user", "hablamos del líder")
+    mind.graph.link_episode([ids["lider"]], episode)
+
+    _, chain = coalition(mind.graph, config)
+    assert chain == ["lider", "debil"]
 
 
 def test_consciousness_is_read_only(make_mind):
@@ -107,15 +121,22 @@ def test_surprise_flag_mirrors_the_physics(make_mind):
     assert mind.consciousness().surprise is False
 
 
+def _with_episode(mind, ids: dict[str, int], text: str) -> None:
+    episode = mind.graph.add_episode(1, "user", text)
+    mind.graph.link_episode(ids.values(), episode)
+
+
 def test_voice_never_breaks_valence_clamped_and_bad_json_is_none(make_mind):
     mind = make_mind(judge=FakeVoice({"text": "x", "valence": 7}))
-    ids = seed_chain(mind, ["a", "b"])               # con arista: material real → pasa por el LLM
+    ids = seed_chain(mind, ["a", "b"])
     _activate(mind, ids, {"a": 1.0, "b": 0.5})
+    _with_episode(mind, ids, "a y b")                # con recuerdo: material real → pasa por el LLM
     assert mind.consciousness().valence == 2         # clamp a [-2, 2]
 
     mind_bad = make_mind(judge=FakeVoice("esto no es json"))
     ids = seed_chain(mind_bad, ["a", "b"])
     _activate(mind_bad, ids, {"a": 1.0, "b": 0.5})
+    _with_episode(mind_bad, ids, "a y b")
     assert mind_bad.consciousness() is None          # sin excepción: la voz no rompe nada
     assert mind_bad.thoughts() == []
 

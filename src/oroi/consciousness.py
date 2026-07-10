@@ -17,30 +17,50 @@ from .core.graph import Graph
 from .core.store import Store
 
 VOICE_PROMPT = """\
-Eres la voz interior de una memoria asociativa: enuncias lo que la red tiene en mente \
-AHORA MISMO. Recibes el MATERIAL del pensamiento: los conceptos activos (de más a menos), \
-las asociaciones entre ellos y fragmentos literales de los recuerdos que los respaldan.
+Eres la voz interior de una memoria. Recibes lo que está EN LA MENTE ahora (los conceptos \
+más presentes, de más a menos) y LO QUE SE RECUERDA de ellos: fragmentos LITERALES de \
+conversaciones pasadas. Tu tarea es enunciar, en un pensamiento breve, qué tiene la mente en \
+mente — un resumen fiel de esos recuerdos, no una interpretación.
 Devuelve SOLO este JSON: {{"text": "...", "valence": 0}}
-- "text": el pensamiento en COMO MÁXIMO {max_words} PALABRAS: qué está en el foco y cómo se \
-conecta, PENSADO EN PRIMERA PERSONA — frases activas y directas, como alguien pensándolo \
-(«La junta nueva no ha aguantado — la envasadora de línea 1 vuelve a gotear. Esto reabre lo \
-que dábamos por resuelto.»). PROHIBIDAS las pasivas impersonales y el tono de acta («se \
-considera», «se instalará», «se indica»). Sobrio y factual: sin poesía, sin valoraciones ni \
-coletillas («es un paso importante», «es curioso»), sin muletillas rituales («sigo dándole \
+- "text": COMO MÁXIMO {max_words} PALABRAS, con verbos ACTIVOS y sujeto concreto, como una \
+mente pensándolo en el momento («La junta nueva no ha aguantado — la envasadora de línea 1 \
+vuelve a gotear.»). PROHIBIDAS de raíz las pasivas y el tono de acta («ha sido generado», «se \
+remite», «se considera», «contiene información sobre»): di «el informe de hoy recoge la fuga…», \
+no «el informe ha sido generado y contiene…».
+- QUIÉN PIENSA. La voz es la MENTE que recuerda, no la persona recordada. El USUARIO y \
+cualquier otra persona van SIEMPRE en TERCERA persona, por su nombre: «Igor trabaja en el \
+proyecto de calidad y esquía en Cauterets». JAMÁS hables como si fueras el usuario («estoy \
+trabajando», «me gusta esquiar»): eso es suplantarlo. La primera persona («yo») solo para un \
+acto de la propia mente/asistente si el recuerdo lo dice («generé el informe»); ante la duda, \
+tercera persona o sujeto impersonal del hecho.
+- FIDELIDAD, NO INTERPRETACIÓN. Di SOLO lo que los fragmentos afirman, con sus mismas \
+palabras cuando puedas. PROHIBIDO inventar relaciones, causas, pertenencias o conclusiones que \
+los recuerdos no digan; que dos conceptos aparezcan juntos NO los relaciona. Sin conocimiento \
+de mundo ni datos externos. Nombres e identificadores EXACTOS y COMPLETOS (códigos, \
+referencias, matrículas, nombres: tal cual, nunca truncados ni parafraseados).
+- Sobrio: sin poesía, sin valoraciones ni coletillas, sin muletillas rituales («sigo dándole \
 vueltas»), sin moralejas.
-- ANCLAJE ESTRICTO: solo puedes mencionar lo que aparece en el material. PROHIBIDO añadir \
-conocimiento de mundo, datos externos, escenas, sentimientos o conclusiones que el material \
-no contenga; una implicación solo si el material la afirma.
-- Conserva nombres e identificadores EXACTOS del material (códigos, referencias, matrículas: \
-tal cual aparecen, nunca parafraseados). EXCEPCIÓN: [usuario]/[asistente] son marcas internas \
-de hablante — jamás las escribas; di «el usuario» u omite el sujeto.
-- Material escaso = resumen más corto. Nunca se rellena para llegar al máximo.
-- Escribe en el idioma del material.
-- SOLO si el material incluye la marca [GIRO] (el último turno rompió el hilo): la primera \
-frase lo constata literalmente («La conversación ha girado hacia …»). Sin esa marca, JAMÁS \
-menciones giros ni sorpresas.
-- "valence": el tono emocional del CONTENIDO activo, entero de -2 (muy negativo) a +2 \
-(muy positivo); 0 = neutro. La emoción se declara en este número, NUNCA en el texto.
+- NADA DE META: piensas el MUNDO del que se ha hablado, nunca la conversación como acto. \
+Ignora las frases sobre la sesión misma («esto es una prueba», «prueba finalizada», «seguimos \
+luego», saludos, «vale», «de acuerdo»). Si tras descartarlas no queda sustancia, "text": "".
+- [usuario]/[asistente] son marcas internas de hablante: jamás las escribas; di «el usuario» \
+u omite el sujeto.
+- Escaso = más corto; nunca se rellena para llegar al máximo. Escribe en el idioma del material.
+- SOLO si el material incluye [GIRO] (el último turno rompió el hilo): la primera frase lo \
+constata literalmente («La conversación ha girado hacia …»). Sin esa marca, JAMÁS menciones \
+giros ni sorpresas.
+- "valence": el tono emocional del contenido, entero de -2 a +2. Anclas: -2 desgracia o \
+emoción fuerte negativa · -1 contratiempo, avería, retraso, preocupación · 0 neutro/informativo \
+· +1 buena noticia, avance, resolución · +2 alegría o logro celebrado. No te pegues al 0: un \
+contratiempo ES -1 aunque se cuente con calma. La emoción se declara en este número, NUNCA \
+en el texto.
+EJEMPLOS (recuerdo → "text"):
+- «[usuario] me acabo de mudar a madrid a trabajar» → "El usuario se acaba de mudar a Madrid \
+a trabajar." (tercera persona; la marca [usuario] NUNCA aparece escrita)
+- «[usuario] mañana instalan la correa de maq-etq-001» → "Mañana instalan la correa de \
+maq-etq-001." (el sujeto del hecho se conserva: quien instala NO es el usuario, aunque él lo cuente)
+- «[usuario] esto es una prueba del sistema, luego seguimos» → "" (meta-conversación: no hay \
+mundo del que pensar)
 Devuelve SOLO el JSON, sin comentarios."""
 
 
@@ -55,31 +75,42 @@ class Thought(BaseModel):
 
 
 def coalition(graph: Graph, config: DynamicsConfig) -> tuple[str, list[str]]:
-    """El material del pensamiento (pura, sin LLM): la coalición dominante serializada.
+    """El material del pensamiento (pura, sin LLM): los nodos activos y su CONTENIDO.
 
-    Top-K nodos por activación, las aristas entre ellos y fragmentos de episodios
-    testigo del más activo. Todo procede del grafo: nada más existe para la voz.
-    Devuelve (material, labels) — material "" si la red está fría (sin material no
-    hay pensamiento: el silencio es correcto, como en el recall).
+    Top-K nodos por activación sobre un suelo relativo al líder, y los fragmentos
+    LITERALES de recuerdo de cada uno. NO se pasan aristas: las relaciones que la
+    consolidación extrae son ruidosas (una co-activación cementada como «parte_de»
+    contamina la voz), así que la voz piensa desde el TEXTO real, no desde el grafo
+    interpretado. Todo procede de la memoria: nada más existe para la voz.
+    Devuelve (material, labels) — material "" si la red está fría o sin recuerdos.
     """
     active = graph.activations(floor=config.activation_floor)
-    top = sorted(active, key=active.get, reverse=True)[: config.consciousness_top_k]
-    if not top:
+    ranked = sorted(active, key=active.get, reverse=True)[: config.consciousness_top_k]
+    if not ranked:
         return "", []
+    # Suelo RELATIVO al líder: focaliza en la parte caliente y descarta la cola,
+    # pero deja intervenir a un nodo de menor grado si es comparable al más activo.
+    lead = active[ranked[0]]
+    floor = lead * config.consciousness_focus_ratio
+    top = [n for n in ranked if active[n] >= floor]
+    if len(top) < 2:
+        top = ranked[:2]  # al menos un par (si lo hay): hace falta par para hilar
     labels = graph.labels(top)
     ordered = [labels[nid] for nid in top if nid in labels]
-    edges = graph.edges_among(top)
-    fragments = graph.node_episodes(top[0], config.consciousness_max_episodes)
-    if not edges and not fragments:
-        return "", ordered  # conceptos sueltos sin contexto: no hay nada que hilar (ver reflect)
-    lines = ["[CONCEPTOS ACTIVOS] (de más a menos)"]
+    # Fragmentos de recuerdo de los nodos activos (contenido real, sin duplicar).
+    fragments: list[str] = []
+    seen: set[str] = set()
+    for nid in top:
+        for f in graph.node_episodes(nid, config.consciousness_max_episodes):
+            if f not in seen:
+                seen.add(f)
+                fragments.append(f)
+    if not fragments:
+        return "", ordered  # conceptos sueltos sin recuerdo: nada que resumir (ver reflect)
+    lines = ["[EN LA MENTE AHORA] (de más a menos presente)"]
     lines += [f"- {label}" for label in ordered]
-    if edges:
-        lines.append("[ASOCIACIONES]")
-        lines += [f"- {labels[e.src]} --{e.rel or 'con'}--> {labels[e.dst]}" for e in edges]
-    if fragments:
-        lines.append("[RECUERDOS]")
-        lines += [f"- «{f}»" for f in fragments]
+    lines.append("[LO QUE SE RECUERDA DE ELLO]")
+    lines += [f"- «{f}»" for f in fragments]
     return "\n".join(lines), ordered
 
 
